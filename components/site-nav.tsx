@@ -30,35 +30,37 @@ export function SiteNav() {
       className="fixed inset-x-0 top-0 z-50 flex justify-center px-4 pt-4"
     >
       <nav
-        className={`flex w-full max-w-6xl items-center justify-between rounded-2xl px-4 py-3 transition-all duration-500 md:px-6 ${
-          scrolled
-            ? 'shadow-2xl'
-            : 'border border-transparent'
+        className={`flex w-full max-w-6xl items-center justify-between rounded-xl px-4 py-2.5 transition-all duration-300 md:px-5 ${
+          scrolled ? '' : 'border border-transparent'
         }`}
         style={
           scrolled
             ? {
-                background: 'rgba(7, 11, 24, 0.88)',
-                backdropFilter: 'blur(12px)',
-                WebkitBackdropFilter: 'blur(12px)',
-                border: '1px solid rgba(139, 92, 246, 0.18)',
+                background: 'rgba(5, 8, 22, 0.92)',
+                border: '1px solid rgba(94, 23, 235, 0.18)',
+                borderBottom: '1px solid rgba(94, 23, 235, 0.28)',
               }
-            : undefined
+            : {
+                background: 'rgba(5, 8, 22, 0.55)',
+              }
         }
       >
         <a href="#top" className="flex items-center gap-2.5">
           <span
-            className="grid size-9 place-items-center rounded-lg"
+            className="grid size-9 place-items-center rounded-md"
             style={{
-              background: 'linear-gradient(135deg, #6C5CE7 0%, #8B5CF6 100%)',
-              boxShadow: '0 6px 18px -8px rgba(108, 92, 231, 0.6)',
+              border: '1px solid rgba(94, 23, 235, 0.55)',
+              background: 'rgba(94, 23, 235, 0.12)',
             }}
           >
             <Shield className="size-5 text-white" strokeWidth={2.2} />
           </span>
           <span className="font-display text-sm font-bold leading-tight tracking-tight">
-            Ghost Protocol
-            <span className="block text-[10px] font-medium tracking-[0.2em] text-muted-foreground">
+            <span style={{ color: '#F8FAFC' }}>Ghost Protocol</span>
+            <span
+              className="block font-mono text-[10px] font-medium tracking-[0.2em]"
+              style={{ color: '#68738D' }}
+            >
               CTF 2.0
             </span>
           </span>
@@ -78,11 +80,8 @@ export function SiteNav() {
 
         <a
           href="#announcement"
-          className="rounded-lg px-4 py-2 text-sm font-semibold text-white transition-all hover:brightness-110"
-          style={{
-            background: 'linear-gradient(135deg, #6C5CE7 0%, #8B5CF6 100%)',
-            boxShadow: '0 8px 20px -10px rgba(108, 92, 231, 0.6)',
-          }}
+          className="rounded-md px-4 py-2 text-sm font-semibold text-white transition-colors hover:bg-[#4a10c4]"
+          style={{ background: '#5e17eb' }}
         >
           Join Channel
         </a>

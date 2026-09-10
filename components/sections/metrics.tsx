@@ -19,22 +19,22 @@ export function Metrics() {
     <section className="relative py-24 md:py-32">
       <div className="mx-auto max-w-6xl px-4">
         <StaggerGroup className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3">
-          {metrics.map((m) => (
+          {metrics.map((m, idx) => (
             <motion.div
               key={m.label}
               variants={staggerItem}
-              className="group relative overflow-hidden rounded-3xl glass-strong p-8 transition-all duration-300 hover:-translate-y-1.5"
-              style={{ background: '#0D1326' }}
+              className="group relative overflow-hidden rounded-xl glass-strong p-8 transition-all duration-300 hover:-translate-y-1 animate-card-drift"
+              style={{ background: '#0D1425', animationDelay: `${idx * -1.5}s` }}
             >
               <div
-                className="absolute -right-10 -top-10 size-32 rounded-full opacity-0 blur-3xl transition-opacity duration-300 group-hover:opacity-100"
+                className="absolute inset-x-0 top-0 h-0.5 opacity-0 transition-opacity duration-300 group-hover:opacity-100"
                 aria-hidden="true"
-                style={{ background: 'rgba(108, 92, 231, 0.12)' }}
+                style={{ background: '#5e17eb' }}
               />
-              <m.icon className="relative mb-6 size-7" style={{ color: '#8B5CF6' }} />
+              <m.icon className="relative mb-6 size-6" style={{ color: '#a78bfa' }} />
               <div
                 className="relative font-display text-4xl font-bold tracking-tight md:text-5xl"
-                style={{ color: '#F5F7FF' }}
+                style={{ color: '#F8FAFC' }}
               >
                 {m.count !== null ? (
                   <CountUp to={m.count} prefix={m.prefix ?? ''} />
@@ -44,11 +44,11 @@ export function Metrics() {
               </div>
               <div
                 className="relative mt-2 font-display text-lg font-semibold"
-                style={{ color: '#F5F7FF' }}
+                style={{ color: '#F8FAFC' }}
               >
                 {m.label}
               </div>
-              <div className="relative mt-1 text-sm" style={{ color: '#A6AEC8' }}>{m.sub}</div>
+              <div className="relative mt-1 text-sm" style={{ color: '#68738D' }}>{m.sub}</div>
             </motion.div>
           ))}
         </StaggerGroup>

@@ -9,34 +9,31 @@ export function Announcement() {
     <section id="announcement" className="relative py-20">
       <div className="mx-auto max-w-5xl px-4">
         <div
-          className="relative overflow-hidden rounded-3xl glass-strong p-8 text-center md:p-14"
-          style={{ background: '#0D1326' }}
+          className="relative overflow-hidden rounded-xl glass-strong p-8 text-center md:p-14"
+          style={{ background: '#0D1425' }}
         >
           <div
             className="absolute inset-0"
             aria-hidden="true"
             style={{
               background:
-                'radial-gradient(50% 40% at 50% 0%, rgba(108, 92, 231, 0.14) 0%, transparent 65%)',
+                'radial-gradient(50% 40% at 50% 0%, rgba(94, 23, 235, 0.09) 0%, transparent 65%)',
             }}
           />
           <div className="absolute inset-0 grid-lines opacity-50" aria-hidden="true" />
 
           <Reveal>
             <span
-              className="relative mx-auto grid size-14 place-items-center rounded-2xl"
-              style={{
-                background: 'linear-gradient(135deg, #6C5CE7 0%, #8B5CF6 100%)',
-                boxShadow: '0 10px 24px -12px rgba(108, 92, 231, 0.55)',
-              }}
+              className="relative mx-auto grid size-12 place-items-center rounded-lg"
+              style={{ background: '#5e17eb' }}
             >
-              <Bell className="size-7 text-white" />
+              <Bell className="size-6 text-white" />
             </span>
           </Reveal>
           <Reveal delay={0.05}>
             <h2
               className="relative mt-6 text-balance font-display text-3xl font-bold tracking-tight md:text-4xl"
-              style={{ color: '#F5F7FF' }}
+              style={{ color: '#F8FAFC' }}
             >
               Never Miss An Update
             </h2>
@@ -44,7 +41,7 @@ export function Announcement() {
           <Reveal delay={0.1}>
             <p
               className="relative mx-auto mt-4 max-w-2xl text-pretty leading-relaxed"
-              style={{ color: '#A6AEC8' }}
+              style={{ color: '#9ca3af' }}
             >
               Join the official Ghost Protocol announcement channel for
               registration updates, deadlines, qualification announcements,
@@ -54,13 +51,10 @@ export function Announcement() {
           <Reveal delay={0.15}>
             <motion.a
               href="#"
-              whileHover={{ scale: 1.03 }}
+              whileHover={{ scale: 1.02 }}
               whileTap={{ scale: 0.98 }}
-              className="relative mt-8 inline-flex items-center gap-2.5 rounded-xl px-8 py-4 text-lg font-semibold text-white"
-              style={{
-                background: 'linear-gradient(135deg, #6C5CE7 0%, #8B5CF6 100%)',
-                boxShadow: '0 12px 28px -12px rgba(108, 92, 231, 0.6)',
-              }}
+              className="relative mt-8 inline-flex items-center gap-2.5 rounded-md px-8 py-4 text-lg font-semibold text-white transition-colors hover:bg-[#4a10c4]"
+              style={{ background: '#5e17eb' }}
             >
               <Radio className="size-5" />
               Join Announcement Channel

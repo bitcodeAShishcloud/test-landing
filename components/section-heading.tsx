@@ -6,11 +6,13 @@ export function SectionHeading({
   title,
   description,
   align = 'center',
+  index,
 }: {
   eyebrow?: string
   title: ReactNode
   description?: ReactNode
   align?: 'center' | 'left'
+  index?: string
 }) {
   const isCenter = align === 'center'
   return (
@@ -18,25 +20,32 @@ export function SectionHeading({
       {eyebrow ? (
         <Reveal>
           <span
-            className={`inline-flex items-center gap-2 rounded-full px-3 py-1 font-mono text-xs font-medium uppercase tracking-[0.18em] ${
+            className={`inline-flex items-center gap-2.5 rounded-md px-3 py-1.5 font-mono text-[11px] font-medium uppercase tracking-[0.22em] ${
               isCenter ? 'mx-auto' : ''
             }`}
             style={{
-              border: '1px solid rgba(139, 92, 246, 0.18)',
-              background: '#0D1326',
-              color: '#A6AEC8',
+              border: '1px solid rgba(94, 23, 235, 0.18)',
+              background: '#0D1425',
+              color: '#9ca3af',
             }}
           >
-            <span
-              className="size-1.5 rounded-full animate-glow-pulse"
-              style={{ background: '#E83E8C' }}
-            />
+            {index ? (
+              <span style={{ color: '#a78bfa' }}>{index} // </span>
+            ) : (
+              <span
+                className="size-1.5 rounded-full animate-glow-pulse"
+                style={{ background: '#E83E8C' }}
+              />
+            )}
             {eyebrow}
           </span>
         </Reveal>
       ) : null}
       <Reveal delay={0.05}>
-        <h2 className="mt-5 text-balance font-display text-3xl font-bold tracking-tight sm:text-4xl md:text-5xl">
+        <h2
+          className="mt-5 text-balance font-display text-3xl font-bold tracking-tight sm:text-4xl md:text-5xl"
+          style={{ color: '#F8FAFC' }}
+        >
           {title}
         </h2>
       </Reveal>

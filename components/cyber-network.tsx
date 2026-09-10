@@ -41,7 +41,7 @@ export function CyberNetwork() {
       canvas!.height = height * dpr
       ctx!.setTransform(dpr, 0, 0, dpr, 0, 0)
 
-      const density = Math.min(42, Math.floor((width * height) / 38000))
+      const density = Math.min(32, Math.floor((width * height) / 48000))
       nodes = Array.from({ length: density }, () => ({
         x: Math.random() * width,
         y: Math.random() * height,
@@ -80,8 +80,8 @@ export function CyberNetwork() {
           const dy = a.y - b.y
           const dist = Math.hypot(dx, dy)
           if (dist < maxDist) {
-            const alpha = (1 - dist / maxDist) * 0.11
-            ctx!.strokeStyle = `rgba(139, 92, 246, ${alpha})`
+            const alpha = (1 - dist / maxDist) * 0.08
+            ctx!.strokeStyle = `rgba(94, 23, 235, ${alpha})`
             ctx!.lineWidth = 0.6
             ctx!.beginPath()
             ctx!.moveTo(a.x, a.y)
@@ -98,19 +98,19 @@ export function CyberNetwork() {
           const p = (Math.sin(n.pulse) + 1) / 2
           const radius = n.r + 1.5 + p * 1.5
           const g = ctx!.createRadialGradient(n.x, n.y, 0, n.x, n.y, radius * 3)
-          g.addColorStop(0, `rgba(139, 92, 246, ${0.22 + p * 0.14})`)
-          g.addColorStop(1, 'rgba(139, 92, 246, 0)')
+          g.addColorStop(0, `rgba(94, 23, 235, ${0.16 + p * 0.1})`)
+          g.addColorStop(1, 'rgba(94, 23, 235, 0)')
           ctx!.fillStyle = g
           ctx!.beginPath()
           ctx!.arc(n.x, n.y, radius * 3, 0, Math.PI * 2)
           ctx!.fill()
 
-          ctx!.fillStyle = `rgba(196, 181, 253, ${0.7 + p * 0.15})`
+          ctx!.fillStyle = `rgba(167, 139, 250, ${0.7 + p * 0.15})`
           ctx!.beginPath()
           ctx!.arc(n.x, n.y, n.r + 0.4, 0, Math.PI * 2)
           ctx!.fill()
         } else {
-          ctx!.fillStyle = 'rgba(166, 174, 200, 0.34)'
+          ctx!.fillStyle = 'rgba(168, 177, 199, 0.28)'
           ctx!.beginPath()
           ctx!.arc(n.x, n.y, n.r, 0, Math.PI * 2)
           ctx!.fill()

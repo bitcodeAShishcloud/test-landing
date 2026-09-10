@@ -49,37 +49,39 @@
 :root {
   --radius: 0.75rem;
 
-  --brand-navy: #0a0f1f;
+  --brand-navy: #0a1020;
   --brand-navy-deep: #050816;
-  --brand-purple: #6c5ce7;
+  --brand-purple: #5e17eb;
+  --brand-indigo: #4a10c4;
+  --brand-violet: #7c3aed;
   --brand-crimson: #e83e8c;
-  --brand-light: #f5f7ff;
+  --brand-light: #f8fafc;
 
   --background: #050816;
-  --foreground: #f5f7ff;
+  --foreground: #f8fafc;
 
-  --card: #0d1326;
-  --card-foreground: #f5f7ff;
-  --popover: #0d1326;
-  --popover-foreground: #f5f7ff;
+  --card: #0d1425;
+  --card-foreground: #f8fafc;
+  --popover: #0d1425;
+  --popover-foreground: #f8fafc;
 
-  --primary: #6c5ce7;
-  --primary-foreground: #f5f7ff;
+  --primary: #5e17eb;
+  --primary-foreground: #f8fafc;
 
-  --secondary: #10172b;
-  --secondary-foreground: #f5f7ff;
+  --secondary: #111a2e;
+  --secondary-foreground: #f8fafc;
 
-  --muted: #0d1326;
-  --muted-foreground: #a6aec8;
+  --muted: #0d1425;
+  --muted-foreground: #9ca3af;
 
-  --accent: #8b5cf6;
-  --accent-foreground: #f5f7ff;
+  --accent: #7c3aed;
+  --accent-foreground: #f8fafc;
 
   --destructive: #e83e8c;
 
-  --border: rgba(139, 92, 246, 0.18);
-  --input: rgba(139, 92, 246, 0.18);
-  --ring: #6c5ce7;
+  --border: rgba(94, 23, 235, 0.18);
+  --input: rgba(94, 23, 235, 0.18);
+  --ring: #5e17eb;
 }
 
 @layer base {
@@ -102,44 +104,39 @@
 
 @layer utilities {
   .text-gradient {
-    background: linear-gradient(180deg, #f5f7ff 30%, #cfc6ff 72%, #8b5cf6 100%);
+    background: linear-gradient(180deg, #f8fafc 45%, #a78bfa 100%);
     -webkit-background-clip: text;
     background-clip: text;
     -webkit-text-fill-color: transparent;
     color: transparent;
   }
   .bg-brand-gradient {
-    background: linear-gradient(135deg, #6c5ce7 0%, #8b5cf6 100%);
+    background: linear-gradient(135deg, #5e17eb 0%, #4a10c4 100%);
   }
   .bg-mesh {
     background:
-      radial-gradient(55% 40% at 50% 0%, rgba(108, 92, 231, 0.12) 0%, transparent 62%),
-      radial-gradient(45% 35% at 82% 22%, rgba(139, 92, 246, 0.07) 0%, transparent 60%),
-      radial-gradient(60% 45% at 50% 100%, rgba(108, 92, 231, 0.06) 0%, transparent 60%),
+      radial-gradient(50% 38% at 50% 0%, rgba(94, 23, 235, 0.09) 0%, transparent 62%),
+      radial-gradient(55% 42% at 50% 100%, rgba(74, 16, 196, 0.05) 0%, transparent 60%),
       #050816;
   }
   .glass {
-    background: rgba(13, 19, 38, 0.82);
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
-    border: 1px solid rgba(139, 92, 246, 0.18);
+    background: #0d1425;
+    border: 1px solid rgba(94, 23, 235, 0.18);
   }
   .glass-strong {
-    background: #0d1326;
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
-    border: 1px solid rgba(139, 92, 246, 0.18);
+    background: #111a2e;
+    border: 1px solid rgba(94, 23, 235, 0.18);
   }
   .glow-purple {
-    box-shadow: 0 0 0 1px rgba(139, 92, 246, 0.18), 0 10px 28px -14px rgba(108, 92, 231, 0.45);
+    box-shadow: 0 0 0 1px rgba(94, 23, 235, 0.18), 0 8px 20px -12px rgba(94, 23, 235, 0.4);
   }
   .glow-crimson {
-    box-shadow: 0 0 0 1px rgba(139, 92, 246, 0.18), 0 10px 24px -14px rgba(232, 62, 140, 0.28);
+    box-shadow: 0 0 0 1px rgba(94, 23, 235, 0.18), 0 8px 20px -12px rgba(232, 62, 140, 0.25);
   }
   .grid-lines {
     background-image:
-      linear-gradient(to right, rgba(166, 174, 200, 0.055) 1px, transparent 1px),
-      linear-gradient(to bottom, rgba(166, 174, 200, 0.055) 1px, transparent 1px);
+      linear-gradient(to right, rgba(168, 177, 199, 0.04) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(168, 177, 199, 0.04) 1px, transparent 1px);
     background-size: 56px 56px;
     mask-image: radial-gradient(70% 60% at 50% 40%, black 30%, transparent 100%);
     -webkit-mask-image: radial-gradient(70% 60% at 50% 40%, black 30%, transparent 100%);
@@ -163,6 +160,17 @@
   10% { opacity: 1; }
   90% { opacity: 1; }
   100% { transform: translateY(2000%); opacity: 0; }
+}
+
+/* Continuous smooth card drift loop: up → side → back, fully eased */
+.animate-card-drift {
+  animation: card-drift 10s ease-in-out infinite;
+}
+@keyframes card-drift {
+  0%, 100% { transform: translate3d(0, 0, 0); }
+  30% { transform: translate3d(0, -10px, 0); }
+  55% { transform: translate3d(10px, -4px, 0); }
+  80% { transform: translate3d(0, -6px, 0); }
 }
 
 @media (prefers-reduced-motion: reduce) {

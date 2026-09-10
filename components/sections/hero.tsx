@@ -30,16 +30,16 @@ export function Hero() {
             initial={{ opacity: 0, y: 16 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
-            className="inline-flex items-center gap-2 rounded-full px-4 py-1.5 font-mono text-xs font-medium uppercase tracking-[0.2em]"
+            className="inline-flex items-center gap-2.5 rounded border px-3.5 py-1.5 font-mono text-[11px] font-medium uppercase tracking-[0.24em]"
             style={{
-              border: '1px solid rgba(139, 92, 246, 0.18)',
-              background: '#0D1326',
-              color: '#A6AEC8',
+              border: '1px solid rgba(94, 23, 235, 0.18)',
+              background: '#0D1425',
+              color: '#9ca3af',
             }}
           >
             <span
-              className="size-1.5 rounded-full animate-glow-pulse"
-              style={{ background: '#E83E8C' }}
+              className="size-1.5 rounded-full"
+              style={{ background: '#a78bfa' }}
             />
             Hack. Secure. Evolve.
           </motion.span>
@@ -49,9 +49,10 @@ export function Hero() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.1, ease: [0.22, 1, 0.36, 1] }}
             className="mt-6 text-balance font-display text-5xl font-bold leading-[0.95] tracking-tight sm:text-6xl md:text-7xl"
+            style={{ color: '#F8FAFC' }}
           >
-            <span className="text-gradient">GHOST PROTOCOL</span>
-            <span className="mt-1 block text-foreground">CTF 2.0</span>
+            GHOST PROTOCOL
+            <span className="text-gradient mt-1 block">CTF 2.0</span>
           </motion.h1>
 
           <motion.p
@@ -67,14 +68,14 @@ export function Hero() {
             initial={{ opacity: 0, y: 18 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 0.35 }}
-            className="mx-auto mt-4 flex max-w-lg flex-col items-center gap-1 font-mono text-sm lg:mx-0 lg:items-start"
-            style={{ color: '#A6AEC8' }}
+            className="mx-auto mt-4 flex max-w-lg flex-col items-center gap-1 font-mono text-[13px] lg:mx-0 lg:items-start"
+            style={{ color: '#9ca3af' }}
           >
             <span>
-              <span style={{ color: '#F5F7FF' }}>Online Qualification Round</span>
-              <span className="mx-2" style={{ color: '#E83E8C' }}>+</span>
+              <span style={{ color: '#F8FAFC' }}>Online Qualification Round</span>
+              <span className="mx-2" style={{ color: '#68738D' }}>+</span>
             </span>
-            <span style={{ color: '#F5F7FF' }}>
+            <span style={{ color: '#F8FAFC' }}>
               Offline Grand Finale at NIET Greater Noida
             </span>
           </motion.div>
@@ -89,16 +90,20 @@ export function Hero() {
             {stats.map((s) => (
               <div
                 key={s.label}
-                className="glass rounded-xl px-3 py-4 text-center"
+                className="rounded-lg px-3 py-4 text-center"
+                style={{
+                  background: '#0D1425',
+                  border: '1px solid rgba(94, 23, 235, 0.18)',
+                }}
               >
-                <s.icon className="mx-auto mb-2 size-5" style={{ color: '#8B5CF6' }} />
+                <s.icon className="mx-auto mb-2 size-4" style={{ color: '#a78bfa' }} />
                 <div
                   className="font-display text-xl font-bold sm:text-2xl"
-                  style={{ color: '#F5F7FF' }}
+                  style={{ color: '#F8FAFC' }}
                 >
                   {s.value}
                 </div>
-                <div className="mt-0.5 text-xs" style={{ color: '#A6AEC8' }}>{s.label}</div>
+                <div className="mt-0.5 text-xs" style={{ color: '#68738D' }}>{s.label}</div>
               </div>
             ))}
           </motion.div>
@@ -111,23 +116,27 @@ export function Hero() {
             className="mt-9 flex flex-col items-center gap-3 sm:flex-row lg:justify-start"
           >
             <a
-              href="#announcement"
-              className="group inline-flex w-full items-center justify-center gap-2 rounded-xl px-6 py-3.5 font-semibold text-white transition-all hover:brightness-110 sm:w-auto"
-              style={{
-                background: 'linear-gradient(135deg, #6C5CE7 0%, #8B5CF6 100%)',
-                boxShadow: '0 10px 28px -12px rgba(108, 92, 231, 0.55)',
-              }}
-            >
-              <Radio className="size-5" />
-              Join Announcement Channel
-            </a>
-            <a
               href="#register"
-              className="group inline-flex w-full items-center justify-center gap-2 rounded-xl glass px-6 py-3.5 font-semibold transition-colors hover:bg-[#111936] sm:w-auto"
-              style={{ color: '#F5F7FF' }}
+              className="group inline-flex w-full items-center justify-center gap-2 rounded-md px-6 py-3.5 font-semibold text-white transition-colors hover:bg-[#4a10c4] sm:w-auto"
+              style={{
+                background: '#5e17eb',
+                boxShadow: '0 8px 24px -12px rgba(94, 23, 235, 0.6)',
+              }}
             >
               Register Now
               <ArrowRight className="size-4 transition-transform group-hover:translate-x-1" />
+            </a>
+            <a
+              href="#announcement"
+              className="group inline-flex w-full items-center justify-center gap-2 rounded-md px-6 py-3.5 font-semibold transition-colors sm:w-auto"
+              style={{
+                border: '1px solid rgba(94, 23, 235, 0.18)',
+                background: 'transparent',
+                color: '#F8FAFC',
+              }}
+            >
+              <Radio className="size-4" style={{ color: '#a78bfa' }} />
+              Join Announcement Channel
             </a>
           </motion.div>
         </div>

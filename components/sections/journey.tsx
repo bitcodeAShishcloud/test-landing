@@ -40,33 +40,31 @@ export function Journey() {
             <motion.div
               key={s.title}
               variants={staggerItem}
-              className="group relative overflow-hidden rounded-2xl glass p-6 transition-all duration-300 hover:-translate-y-1"
-              style={{ background: '#0D1326' }}
+              className="group relative overflow-hidden rounded-xl glass p-6 transition-all duration-300 hover:-translate-y-1 animate-card-drift"
+              style={{ background: '#0D1425', animationDelay: `${i * -1.5}s` }}
             >
               <span
                 className="absolute right-4 top-3 font-display text-5xl font-bold"
                 aria-hidden="true"
-                style={{ color: 'rgba(166, 174, 200, 0.1)' }}
+                style={{ color: 'rgba(104, 115, 141, 0.22)' }}
               >
                 {String(i + 1).padStart(2, '0')}
               </span>
               <span
-                className="relative mb-4 grid size-11 place-items-center rounded-xl"
-                style={{
-                  background: 'linear-gradient(135deg, #6C5CE7 0%, #8B5CF6 100%)',
-                }}
+                className="relative mb-4 grid size-10 place-items-center rounded-lg"
+                style={{ background: '#5e17eb' }}
               >
                 <s.icon className="size-5 text-white" />
               </span>
               <h3
                 className="relative font-display font-bold"
-                style={{ color: '#F5F7FF' }}
+                style={{ color: '#F8FAFC' }}
               >
                 {s.title}
               </h3>
               <p
                 className="relative mt-1.5 text-sm leading-relaxed"
-                style={{ color: '#A6AEC8' }}
+                style={{ color: '#9ca3af' }}
               >
                 {s.body}
               </p>

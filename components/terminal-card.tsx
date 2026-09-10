@@ -29,39 +29,28 @@ export function TerminalCard() {
   return (
     <div ref={ref} className="relative">
       <div
-        className="absolute -inset-3 rounded-3xl opacity-100 blur-xl"
-        aria-hidden="true"
-        style={{ background: 'rgba(108, 92, 231, 0.12)' }}
-      />
-      <div
-        className="relative overflow-hidden rounded-2xl shadow-2xl"
+        className="relative overflow-hidden rounded-lg"
         style={{
-          background: '#070b18',
-          border: '1px solid rgba(139, 92, 246, 0.18)',
-          boxShadow: '0 24px 48px -24px rgba(0, 0, 0, 0.7)',
+          background: '#050816',
+          border: '1px solid rgba(94, 23, 235, 0.18)',
         }}
       >
         {/* title bar */}
         <div
-          className="flex items-center gap-2 px-4 py-3"
-          style={{ borderBottom: '1px solid rgba(139, 92, 246, 0.18)', background: '#0A0F1F' }}
+          className="flex items-center gap-2 px-4 py-2.5"
+          style={{ borderBottom: '1px solid rgba(94, 23, 235, 0.18)', background: '#0A1020' }}
         >
-          <span className="size-3 rounded-full" style={{ background: '#E83E8C' }} />
-          <span className="size-3 rounded-full" style={{ background: '#8B5CF6' }} />
-          <span className="size-3 rounded-full" style={{ background: '#6F7895' }} />
-          <span className="ml-2 font-mono text-xs" style={{ color: '#A6AEC8' }}>
+          <span className="size-2.5 rounded-full" style={{ background: '#E83E8C' }} />
+          <span className="size-2.5 rounded-full" style={{ background: '#a78bfa' }} />
+          <span className="size-2.5 rounded-full" style={{ background: '#68738D' }} />
+          <span className="ml-2 font-mono text-[11px] tracking-[0.14em]" style={{ color: '#9ca3af' }}>
             ghost_protocol — bash
           </span>
         </div>
 
         {/* scanline */}
         <div className="relative">
-          <div
-            className="pointer-events-none absolute inset-x-0 top-0 h-16 animate-scan"
-            aria-hidden="true"
-            style={{ background: 'linear-gradient(to bottom, rgba(139,92,246,0.07), transparent)' }}
-          />
-          <div className="min-h-[220px] p-5 font-mono text-sm leading-relaxed">
+          <div className="min-h-[220px] p-5 font-mono text-[13px] leading-relaxed">
             {script.slice(0, visibleLines).map((line, i) => (
               <p
                 key={i}
@@ -74,14 +63,14 @@ export function TerminalCard() {
                 }
                 style={
                   line.kind === 'cmd'
-                    ? { color: '#F5F7FF' }
+                    ? { color: '#F8FAFC' }
                     : line.kind === 'ok'
                       ? { color: '#34d399' }
-                      : { color: '#A6AEC8' }
+                      : { color: '#9ca3af' }
                 }
               >
                 {line.kind === 'out' && (
-                  <span className="mr-2" style={{ color: '#8B5CF6' }}>
+                  <span className="mr-2" style={{ color: '#a78bfa' }}>
                     ›
                   </span>
                 )}

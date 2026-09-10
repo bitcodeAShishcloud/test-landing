@@ -40,34 +40,34 @@ export function Categories() {
         />
 
         <StaggerGroup className="mt-14 grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-5">
-          {categories.map((c) => (
+          {categories.map((c, idx) => (
             <motion.div
               key={c.name}
               variants={staggerItem}
-              className="group relative flex flex-col items-center gap-3 overflow-hidden rounded-2xl glass p-6 text-center transition-all duration-300 hover:-translate-y-1"
-              style={{ background: '#0D1326' }}
+              className="group relative flex flex-col items-center gap-3 overflow-hidden rounded-xl glass p-6 text-center transition-all duration-300 hover:-translate-y-1 animate-card-drift"
+              style={{ background: '#0D1425', animationDelay: `${idx * -1.5}s` }}
             >
               <div
-                className="absolute inset-x-0 -bottom-10 h-20 opacity-0 blur-2xl transition-opacity duration-300 group-hover:opacity-100"
+                className="absolute inset-x-0 top-0 h-0.5 opacity-0 transition-opacity duration-300 group-hover:opacity-100"
                 aria-hidden="true"
-                style={{ background: 'rgba(108, 92, 231, 0.12)' }}
+                style={{ background: '#5e17eb' }}
               />
               <span
-                className="relative grid size-14 place-items-center rounded-2xl transition-colors duration-300"
+                className="relative grid size-12 place-items-center rounded-xl transition-colors duration-300"
                 style={{
-                  border: '1px solid rgba(139, 92, 246, 0.18)',
-                  background: '#10172B',
+                  border: '1px solid rgba(94, 23, 235, 0.18)',
+                  background: '#111A2E',
                 }}
               >
                 <c.icon
-                  className="size-6 transition-transform duration-300 group-hover:scale-110"
-                  style={{ color: '#8B5CF6' }}
+                  className="size-5 transition-transform duration-300 group-hover:scale-110"
+                  style={{ color: '#a78bfa' }}
                   strokeWidth={1.7}
                 />
               </span>
               <span
                 className="relative text-sm font-medium leading-tight"
-                style={{ color: '#F5F7FF' }}
+                style={{ color: '#F8FAFC' }}
               >
                 {c.name}
               </span>

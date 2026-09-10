@@ -39,36 +39,33 @@ export function WhyParticipate() {
         />
 
         <StaggerGroup className="mt-14 grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-4">
-          {cards.map((c) => (
+          {cards.map((c, idx) => (
             <motion.div
               key={c.title}
               variants={staggerItem}
-              className="group relative overflow-hidden rounded-2xl glass p-6 transition-all duration-300 hover:-translate-y-1.5"
-              style={{ background: '#0D1326' }}
+              className="group relative overflow-hidden rounded-xl glass p-6 transition-all duration-300 hover:-translate-y-1 animate-card-drift"
+              style={{ background: '#0D1425', animationDelay: `${idx * -1.5}s` }}
             >
               <div
-                className="absolute -right-8 -top-8 size-24 rounded-full opacity-0 blur-2xl transition-opacity duration-300 group-hover:opacity-100"
+                className="absolute inset-x-0 top-0 h-0.5 opacity-0 transition-opacity duration-300 group-hover:opacity-100"
                 aria-hidden="true"
-                style={{ background: 'rgba(108, 92, 231, 0.14)' }}
+                style={{ background: '#5e17eb' }}
               />
               <div
-                className="relative mb-5 grid size-12 place-items-center rounded-xl"
-                style={{
-                  background: 'linear-gradient(135deg, #6C5CE7 0%, #8B5CF6 100%)',
-                  boxShadow: '0 8px 20px -10px rgba(108, 92, 231, 0.5)',
-                }}
+                className="relative mb-5 grid size-11 place-items-center rounded-lg"
+                style={{ background: '#5e17eb' }}
               >
-                <c.icon className="size-6 text-white transition-transform duration-300 group-hover:scale-110" />
+                <c.icon className="size-5 text-white transition-transform duration-300 group-hover:scale-110" />
               </div>
               <h3
                 className="relative font-display text-lg font-bold"
-                style={{ color: '#F5F7FF' }}
+                style={{ color: '#F8FAFC' }}
               >
                 {c.title}
               </h3>
               <p
                 className="relative mt-2 text-sm leading-relaxed"
-                style={{ color: '#A6AEC8' }}
+                style={{ color: '#9ca3af' }}
               >
                 {c.body}
               </p>

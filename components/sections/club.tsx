@@ -14,21 +14,24 @@ const stats = [
 
 export function Club() {
   return (
-    <section id="club" className="relative overflow-hidden py-24 md:py-32">
+    <section
+      id="club"
+      className="relative overflow-hidden py-24 md:py-32"
+      style={{
+        background: '#070B17',
+        borderTop: '1px solid rgba(94, 23, 235, 0.18)',
+        borderBottom: '1px solid rgba(94, 23, 235, 0.18)',
+      }}
+    >
       <div className="mx-auto max-w-6xl px-4">
         <div className="grid items-center gap-12 lg:grid-cols-2">
           <Reveal>
             <div className="relative mx-auto w-full max-w-sm">
               <div
-                className="absolute -inset-6 rounded-full blur-3xl"
-                aria-hidden="true"
-                style={{ background: 'rgba(108, 92, 231, 0.12)' }}
-              />
-              <div
-                className="relative overflow-hidden rounded-3xl glass-strong p-8"
-                style={{ background: '#0D1326' }}
+                className="relative overflow-hidden rounded-xl glass-strong p-8"
+                style={{ background: '#0D1425' }}
               >
-                <div className="absolute inset-0 grid-lines opacity-60" aria-hidden="true" />
+                <div className="absolute inset-0 grid-lines opacity-50" aria-hidden="true" />
                 <Image
                   src="/cyber-invaders-logo.png"
                   alt="Cyber Invaders club logo"
@@ -53,16 +56,17 @@ export function Club() {
               {stats.map((s) => (
                 <Reveal
                   key={s.label}
-                  className="rounded-2xl glass p-5"
+                  className="rounded-xl glass p-5 animate-card-drift"
+                  style={{ background: '#0D1425' }}
                 >
                   <div
                     className="font-display text-3xl font-bold"
-                    style={{ color: '#F5F7FF' }}
+                    style={{ color: '#F8FAFC' }}
                   >
                     <CountUp to={s.value} />
-                    <span style={{ color: '#8B5CF6' }}>{s.suffix}</span>
+                    <span style={{ color: '#a78bfa' }}>{s.suffix}</span>
                   </div>
-                  <div className="mt-1 text-sm" style={{ color: '#A6AEC8' }}>{s.label}</div>
+                  <div className="mt-1 text-sm" style={{ color: '#68738D' }}>{s.label}</div>
                 </Reveal>
               ))}
             </div>

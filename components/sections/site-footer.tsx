@@ -35,7 +35,7 @@ export function SiteFooter() {
     <footer
       className="relative"
       style={{
-        borderTop: '1px solid rgba(139, 92, 246, 0.18)',
+        borderTop: '1px solid rgba(94, 23, 235, 0.18)',
         background: '#050816',
       }}
     >
@@ -44,23 +44,24 @@ export function SiteFooter() {
           <div>
             <div className="flex items-center gap-2.5">
               <span
-                className="grid size-9 place-items-center rounded-lg"
+                className="grid size-9 place-items-center rounded-md"
                 style={{
-                  background: 'linear-gradient(135deg, #6C5CE7 0%, #8B5CF6 100%)',
+                  border: '1px solid rgba(94, 23, 235, 0.55)',
+                  background: 'rgba(94, 23, 235, 0.12)',
                 }}
               >
                 <Shield className="size-5 text-white" strokeWidth={2.2} />
               </span>
               <span
                 className="font-display text-base font-bold leading-tight"
-                style={{ color: '#F5F7FF' }}
+                style={{ color: '#F8FAFC' }}
               >
                 Ghost Protocol CTF 2.0
               </span>
             </div>
             <p
               className="mt-4 max-w-xs text-sm leading-relaxed"
-              style={{ color: '#A6AEC8' }}
+              style={{ color: '#9ca3af' }}
             >
               A national-level student cybersecurity competition organized by
               Cyber Invaders, the cybersecurity club of NIET Greater Noida.
@@ -71,8 +72,8 @@ export function SiteFooter() {
                   key={s.label}
                   href={s.href}
                   aria-label={s.label}
-                  className="grid size-9 place-items-center rounded-lg glass transition-colors hover:bg-[#111936]"
-                  style={{ color: '#A6AEC8' }}
+                  className="grid size-9 place-items-center rounded-md glass transition-colors hover:bg-[#111A2E]"
+                  style={{ color: '#9ca3af' }}
                 >
                   <s.icon className="size-4" />
                 </a>

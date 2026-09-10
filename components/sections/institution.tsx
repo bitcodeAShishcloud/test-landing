@@ -33,7 +33,10 @@ export function Institution() {
   return (
     <section
       className="relative overflow-hidden py-24 md:py-32"
-      style={{ background: '#070B18' }}
+      style={{
+        background: '#070B17',
+        borderBottom: '1px solid rgba(94, 23, 235, 0.18)',
+      }}
     >
       <div className="absolute inset-0 grid-lines opacity-50" aria-hidden="true" />
       <div className="relative mx-auto max-w-6xl px-4">
@@ -49,8 +52,8 @@ export function Institution() {
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true, margin: '-80px' }}
             transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
-            className="relative overflow-hidden rounded-3xl glass-strong"
-            style={{ background: '#0D1326' }}
+            className="relative overflow-hidden rounded-xl glass-strong"
+            style={{ background: '#0D1425' }}
           >
             <Image
               src="/niet-campus.png"
@@ -66,13 +69,13 @@ export function Institution() {
             <div className="absolute bottom-0 left-0 p-6">
               <span
                 className="font-mono text-xs uppercase tracking-[0.2em]"
-                style={{ color: '#8B5CF6' }}
+                style={{ color: '#a78bfa' }}
               >
                 Greater Noida, India
               </span>
               <p
                 className="font-display text-lg font-bold"
-                style={{ color: '#F5F7FF' }}
+                style={{ color: '#F8FAFC' }}
               >
                 Noida Institute of Engineering and Technology
               </p>
@@ -80,31 +83,29 @@ export function Institution() {
           </motion.div>
 
           <StaggerGroup className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-1">
-            {pillars.map((p) => (
+            {pillars.map((p, idx) => (
               <motion.div
                 key={p.title}
                 variants={staggerItem}
-                className="flex items-start gap-4 rounded-2xl glass p-5 transition-colors hover:bg-[#111936]"
-                style={{ background: '#0D1326' }}
+                className="flex items-start gap-4 rounded-xl glass p-5 transition-colors hover:bg-[#111A2E] animate-card-drift"
+                style={{ background: '#0D1425', animationDelay: `${idx * -1.5}s` }}
               >
                 <span
-                  className="grid size-10 shrink-0 place-items-center rounded-xl"
-                  style={{
-                    background: 'linear-gradient(135deg, #6C5CE7 0%, #8B5CF6 100%)',
-                  }}
+                  className="grid size-10 shrink-0 place-items-center rounded-lg"
+                  style={{ background: '#5e17eb' }}
                 >
                   <p.icon className="size-5 text-white" />
                 </span>
                 <div>
                   <h3
                     className="font-display font-bold"
-                    style={{ color: '#F5F7FF' }}
+                    style={{ color: '#F8FAFC' }}
                   >
                     {p.title}
                   </h3>
                   <p
                     className="mt-1 text-sm leading-relaxed"
-                    style={{ color: '#A6AEC8' }}
+                    style={{ color: '#9ca3af' }}
                   >
                     {p.body}
                   </p>

@@ -31,7 +31,11 @@ export function Structure() {
     <section
       id="structure"
       className="relative overflow-hidden py-24 md:py-32"
-      style={{ background: '#070B18' }}
+      style={{
+        background: '#070B17',
+        borderTop: '1px solid rgba(94, 23, 235, 0.18)',
+        borderBottom: '1px solid rgba(94, 23, 235, 0.18)',
+      }}
     >
       <div className="absolute inset-0 grid-lines opacity-60" aria-hidden="true" />
       <div className="relative mx-auto max-w-6xl px-4">
@@ -47,7 +51,7 @@ export function Structure() {
           <div
             className="absolute left-1/2 top-0 hidden h-full w-px -translate-x-1/2 md:block"
             aria-hidden="true"
-            style={{ background: 'rgba(139, 92, 246, 0.18)' }}
+            style={{ background: 'rgba(94, 23, 235, 0.18)' }}
           >
             <motion.div
               initial={{ scaleY: 0 }}
@@ -55,7 +59,7 @@ export function Structure() {
               viewport={{ once: true, margin: '-100px' }}
               transition={{ duration: 1.4, ease: 'easeInOut' }}
               className="h-full w-full origin-top"
-              style={{ background: 'linear-gradient(to bottom, #6C5CE7, rgba(139,92,246,0.2))' }}
+              style={{ background: 'linear-gradient(to bottom, #5e17eb, rgba(94,23,235,0.15))' }}
             />
           </div>
 
@@ -71,8 +75,8 @@ export function Structure() {
               >
                 <Reveal y={30}>
                   <div
-                    className="relative overflow-hidden rounded-2xl glass-strong p-7"
-                    style={{ background: '#0D1326' }}
+                    className="relative overflow-hidden rounded-xl glass-strong p-7"
+                    style={{ background: '#0D1425' }}
                   >
                     <div
                       className={`mb-4 flex items-center gap-3 ${
@@ -80,23 +84,21 @@ export function Structure() {
                       }`}
                     >
                       <span
-                        className="grid size-11 shrink-0 place-items-center rounded-xl"
-                        style={{
-                          background: 'linear-gradient(135deg, #6C5CE7 0%, #8B5CF6 100%)',
-                        }}
+                        className="grid size-10 shrink-0 place-items-center rounded-lg"
+                        style={{ background: '#5e17eb' }}
                       >
                         <p.icon className="size-5 text-white" />
                       </span>
                       <div className={idx === 0 ? 'md:text-right' : ''}>
                         <span
                           className="font-mono text-xs font-semibold uppercase tracking-[0.2em]"
-                          style={{ color: '#8B5CF6' }}
+                          style={{ color: '#a78bfa' }}
                         >
                           {p.tag}
                         </span>
                         <h3
                           className="font-display text-xl font-bold"
-                          style={{ color: '#F5F7FF' }}
+                          style={{ color: '#F8FAFC' }}
                         >
                           {p.title}
                         </h3>
@@ -106,7 +108,7 @@ export function Structure() {
                       className={`space-y-2 text-sm ${
                         idx === 0 ? 'md:ml-auto' : ''
                       }`}
-                      style={{ color: '#A6AEC8' }}
+                      style={{ color: '#9ca3af' }}
                     >
                       {p.points.map((pt) => (
                         <li
