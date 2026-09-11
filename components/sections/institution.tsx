@@ -56,8 +56,8 @@ export function Institution() {
             style={{ background: '#0D1425' }}
           >
             <Image
-              src="/niet-campus.png"
-              alt="NIET Greater Noida technology campus at dusk"
+              src="/niet-campus.webp"
+              alt="NIET Greater Noida Academic Block, Noida Institute of Engineering and Technology"
               width={900}
               height={640}
               className="h-full w-full object-cover"
