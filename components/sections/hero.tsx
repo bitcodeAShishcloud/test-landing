@@ -7,8 +7,8 @@ import { CyberNetwork } from '@/components/cyber-network'
 import { FlameEffect } from '@/components/flame-effect'
 
 const stats = [
-  { icon: Users, value: '200', label: 'Teams' },
-  { icon: UsersRound, value: '600', label: 'Participants' },
+  { icon: Users, value: '350+', label: 'Expected Teams' },
+  { icon: UsersRound, value: '1,000+', label: 'Expected Participants' },
   { icon: Trophy, value: '₹24,000', label: 'Prize Pool' },
 ]
 

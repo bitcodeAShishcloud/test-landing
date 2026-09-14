@@ -295,15 +295,24 @@
   transform: rotateY(180deg);
 }
 .flip-face {
-  position: absolute;
-  inset: 0;
   backface-visibility: hidden;
   -webkit-backface-visibility: hidden;
 }
+/* Front face drives the scene's height so the grid row can stretch to the
+   tallest card in that row. Back face stays absolute + inset:0 so it shares
+   that exact height — no clipping of wrapped text. */
 .flip-face-front {
+  position: relative;
+  width: 100%;
   transform: rotateY(0deg);
 }
+/* Back face is absolute + inset:0, so it visually overlaps the front face
+   and shares its height exactly. To guarantee that both faces match no
+   matter the content length, we also pin the inner to the front's box via
+   `height: 100%` on the inner and `inset: 0` on the back. */
 .flip-face-back {
+  position: absolute;
+  inset: 0;
   transform: rotateY(180deg);
 }
 

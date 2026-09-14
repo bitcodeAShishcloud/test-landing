@@ -7,10 +7,12 @@ export function CountUp({
   to,
   duration = 1600,
   prefix = '',
+  suffix = '',
 }: {
   to: number
   duration?: number
   prefix?: string
+  suffix?: string
 }) {
   const ref = useRef<HTMLSpanElement>(null)
   const inView = useInView(ref, { once: true, margin: '-40px' })
@@ -39,6 +41,7 @@ export function CountUp({
     <span ref={ref}>
       {prefix}
       {value.toLocaleString('en-IN')}
+      {suffix}
     </span>
   )
 }

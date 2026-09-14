@@ -17,3 +17,6 @@ node_modules
 .zcode/
 .vscode/
 *.tsbuildinfo
+
+# This project uses pnpm — ignore npm lockfile if it reappears
+package-lock.json
