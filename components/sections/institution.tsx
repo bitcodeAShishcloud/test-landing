@@ -1,10 +1,28 @@
 'use client'
 
+import { useState, useEffect } from 'react'
 import Image from 'next/image'
 import { motion } from 'motion/react'
-import { ShieldCheck, Lightbulb, GraduationCap, Briefcase } from 'lucide-react'
+import { ShieldCheck, Lightbulb, GraduationCap, Briefcase, ChevronLeft, ChevronRight, MapPin } from 'lucide-react'
 import { SectionHeading } from '@/components/section-heading'
 import { StaggerGroup, staggerItem } from '@/components/motion-primitives'
+
+const campusImages = [
+  {
+    src: '/niet-campus-aerial.webp',
+    alt: 'NIET Greater Noida — Campus Panorama & Grounds',
+    badge: 'Campus View 01 · Aerial',
+    location: 'Knowledge Park II, Greater Noida',
+    title: 'NIET Institutional Campus & Technology Grounds',
+  },
+  {
+    src: '/niet-campus.webp',
+    alt: 'NIET Greater Noida Academic Block & Cyber Labs',
+    badge: 'Campus View 02 · Academic Block',
+    location: 'Academic & Cyber Lab Arena',
+    title: 'Department of Computer Science & Cyber Security Labs',
+  },
+]
 
 const pillars = [
   {
@@ -30,6 +48,21 @@ const pillars = [
 ]
 
 export function Institution() {
+  const [currentIdx, setCurrentIdx] = useState(0)
+  const [isPaused, setIsPaused] = useState(false)
+
+  // Auto-scroll images every 4 seconds
+  useEffect(() => {
+    if (isPaused) return
+    const interval = setInterval(() => {
+      setCurrentIdx((prev) => (prev + 1) % campusImages.length)
+    }, 4000)
+    return () => clearInterval(interval)
+  }, [isPaused])
+
+  const nextSlide = () => setCurrentIdx((prev) => (prev + 1) % campusImages.length)
+  const prevSlide = () => setCurrentIdx((prev) => (prev - 1 + campusImages.length) % campusImages.length)
+
   return (
     <section
       className="relative overflow-hidden py-24 md:py-32"
@@ -47,41 +80,109 @@ export function Institution() {
         />
 
         <div className="mt-14 grid gap-8 lg:grid-cols-[1.15fr_0.85fr] lg:items-stretch">
+          {/* ── Auto-Scrolling Campus Image Carousel (Borderless like Hero Banner) ── */}
           <motion.div
             initial={{ opacity: 0, scale: 0.98 }}
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true, margin: '-80px' }}
             transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
-            className="relative overflow-hidden rounded-xl glass-strong"
-            style={{ background: '#0D1425' }}
+            className="relative h-[380px] sm:h-[460px] overflow-hidden rounded-2xl drop-shadow-[0_0_35px_rgba(94,23,235,0.35)] group"
+            onMouseEnter={() => setIsPaused(true)}
+            onMouseLeave={() => setIsPaused(false)}
           >
-            <Image
-              src="/niet-campus.webp"
-              alt="NIET Greater Noida Academic Block, Noida Institute of Engineering and Technology"
-              width={900}
-              height={640}
-              className="h-full w-full object-cover"
-            />
+            {/* Carousel Images with Smooth Crossfade */}
+            {campusImages.map((img, idx) => (
+              <div
+                key={img.src}
+                className={`absolute inset-0 h-full w-full transition-all duration-1000 ease-in-out ${
+                  currentIdx === idx
+                    ? 'opacity-100 scale-100 z-10'
+                    : 'opacity-0 scale-105 pointer-events-none z-0'
+                }`}
+              >
+                <Image
+                  src={img.src}
+                  alt={img.alt}
+                  fill
+                  sizes="(max-width: 1024px) 100vw, 60vw"
+                  className="h-full w-full object-cover rounded-2xl"
+                  priority={idx === 0}
+                />
+              </div>
+            ))}
+
+            {/* Dark Gradient Vignette for Text Legibility */}
             <div
-              className="absolute inset-0 bg-gradient-to-t from-[#050816] via-transparent to-transparent"
+              className="absolute inset-0 z-20 pointer-events-none bg-gradient-to-t from-[#050816] via-[#050816]/35 to-transparent"
               aria-hidden="true"
             />
-            <div className="absolute bottom-0 left-0 p-6">
+
+            {/* Top Badge: Slide Indicator */}
+            <div className="absolute top-4 left-4 z-30 flex items-center gap-2">
               <span
-                className="font-mono text-xs uppercase tracking-[0.2em]"
-                style={{ color: '#a78bfa' }}
+                className="rounded-full px-3 py-1 font-mono text-[10px] font-semibold uppercase tracking-wider backdrop-blur-md text-white flex items-center gap-1.5"
+                style={{
+                  background: 'rgba(5, 8, 22, 0.85)',
+                  border: '1px solid rgba(94, 23, 235, 0.35)',
+                }}
               >
-                Greater Noida, India
+                <span className="size-1.5 rounded-full bg-[#34d399] animate-pulse" />
+                {campusImages[currentIdx].badge}
               </span>
-              <p
-                className="font-display text-lg font-bold"
-                style={{ color: '#F8FAFC' }}
+            </div>
+
+            {/* Manual Slide Arrows (Visible on hover) */}
+            <div className="absolute inset-y-0 inset-x-3 z-30 flex items-center justify-between pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+              <button
+                onClick={prevSlide}
+                className="pointer-events-auto grid size-9 place-items-center rounded-full bg-[#050816]/85 text-white border border-[rgba(94,23,235,0.4)] backdrop-blur-md hover:bg-[#5e17eb] transition-colors"
+                aria-label="Previous image"
               >
-                Noida Institute of Engineering and Technology
-              </p>
+                <ChevronLeft className="size-4" />
+              </button>
+              <button
+                onClick={nextSlide}
+                className="pointer-events-auto grid size-9 place-items-center rounded-full bg-[#050816]/85 text-white border border-[rgba(94,23,235,0.4)] backdrop-blur-md hover:bg-[#5e17eb] transition-colors"
+                aria-label="Next image"
+              >
+                <ChevronRight className="size-4" />
+              </button>
+            </div>
+
+            {/* Bottom Caption & Pagination Dots */}
+            <div className="absolute bottom-0 inset-x-0 p-6 z-30 flex flex-col sm:flex-row sm:items-end justify-between gap-4">
+              <div>
+                <span
+                  className="flex items-center gap-1 font-mono text-xs uppercase tracking-[0.2em]"
+                  style={{ color: '#a78bfa' }}
+                >
+                  <MapPin className="size-3.5 text-[#e83e8c]" />
+                  {campusImages[currentIdx].location}
+                </span>
+                <p className="mt-1 font-display text-base sm:text-lg font-bold text-white max-w-md">
+                  {campusImages[currentIdx].title}
+                </p>
+              </div>
+
+              {/* Progress Indicator Dots */}
+              <div className="flex items-center gap-2">
+                {campusImages.map((_, i) => (
+                  <button
+                    key={i}
+                    onClick={() => setCurrentIdx(i)}
+                    aria-label={`Go to slide ${i + 1}`}
+                    className="h-1.5 rounded-full transition-all duration-300"
+                    style={{
+                      width: currentIdx === i ? '24px' : '8px',
+                      background: currentIdx === i ? '#5e17eb' : 'rgba(167, 139, 250, 0.3)',
+                    }}
+                  />
+                ))}
+              </div>
             </div>
           </motion.div>
 
+          {/* ── 4 Pillars List ── */}
           <StaggerGroup className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-1">
             {pillars.map((p, idx) => (
               <motion.div
