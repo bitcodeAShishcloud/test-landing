@@ -86,7 +86,7 @@ export function Institution() {
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true, margin: '-80px' }}
             transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
-            className="relative h-[380px] sm:h-[460px] overflow-hidden rounded-2xl drop-shadow-[0_0_35px_rgba(94,23,235,0.35)] group"
+            className="relative h-[300px] sm:h-[400px] md:h-[460px] overflow-hidden rounded-2xl drop-shadow-[0_0_35px_rgba(94,23,235,0.35)] group"
             onMouseEnter={() => setIsPaused(true)}
             onMouseLeave={() => setIsPaused(false)}
           >
@@ -118,9 +118,9 @@ export function Institution() {
             />
 
             {/* Top Badge: Slide Indicator */}
-            <div className="absolute top-4 left-4 z-30 flex items-center gap-2">
+            <div className="absolute top-3 sm:top-4 left-3 sm:left-4 z-30 flex items-center gap-2">
               <span
-                className="rounded-full px-3 py-1 font-mono text-[10px] font-semibold uppercase tracking-wider backdrop-blur-md text-white flex items-center gap-1.5"
+                className="rounded-full px-2.5 sm:px-3 py-0.5 sm:py-1 font-mono text-[9px] sm:text-[10px] font-semibold uppercase tracking-wider backdrop-blur-md text-white flex items-center gap-1.5"
                 style={{
                   background: 'rgba(5, 8, 22, 0.85)',
                   border: '1px solid rgba(94, 23, 235, 0.35)',
@@ -132,40 +132,40 @@ export function Institution() {
             </div>
 
             {/* Manual Slide Arrows (Visible on hover) */}
-            <div className="absolute inset-y-0 inset-x-3 z-30 flex items-center justify-between pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+            <div className="absolute inset-y-0 inset-x-2 sm:inset-x-3 z-30 flex items-center justify-between pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity duration-300">
               <button
                 onClick={prevSlide}
-                className="pointer-events-auto grid size-9 place-items-center rounded-full bg-[#050816]/85 text-white border border-[rgba(94,23,235,0.4)] backdrop-blur-md hover:bg-[#5e17eb] transition-colors"
+                className="pointer-events-auto grid size-8 sm:size-9 place-items-center rounded-full bg-[#050816]/85 text-white border border-[rgba(94,23,235,0.4)] backdrop-blur-md hover:bg-[#5e17eb] transition-colors"
                 aria-label="Previous image"
               >
-                <ChevronLeft className="size-4" />
+                <ChevronLeft className="size-3.5 sm:size-4" />
               </button>
               <button
                 onClick={nextSlide}
-                className="pointer-events-auto grid size-9 place-items-center rounded-full bg-[#050816]/85 text-white border border-[rgba(94,23,235,0.4)] backdrop-blur-md hover:bg-[#5e17eb] transition-colors"
+                className="pointer-events-auto grid size-8 sm:size-9 place-items-center rounded-full bg-[#050816]/85 text-white border border-[rgba(94,23,235,0.4)] backdrop-blur-md hover:bg-[#5e17eb] transition-colors"
                 aria-label="Next image"
               >
-                <ChevronRight className="size-4" />
+                <ChevronRight className="size-3.5 sm:size-4" />
               </button>
             </div>
 
             {/* Bottom Caption & Pagination Dots */}
-            <div className="absolute bottom-0 inset-x-0 p-6 z-30 flex flex-col sm:flex-row sm:items-end justify-between gap-4">
+            <div className="absolute bottom-0 inset-x-0 p-4 sm:p-6 z-30 flex flex-col sm:flex-row sm:items-end justify-between gap-2.5 sm:gap-4">
               <div>
                 <span
-                  className="flex items-center gap-1 font-mono text-xs uppercase tracking-[0.2em]"
+                  className="flex items-center gap-1 font-mono text-[10px] sm:text-xs uppercase tracking-[0.2em]"
                   style={{ color: '#a78bfa' }}
                 >
-                  <MapPin className="size-3.5 text-[#e83e8c]" />
+                  <MapPin className="size-3 sm:size-3.5 text-[#e83e8c]" />
                   {campusImages[currentIdx].location}
                 </span>
-                <p className="mt-1 font-display text-base sm:text-lg font-bold text-white max-w-md">
+                <p className="mt-0.5 sm:mt-1 font-display text-sm sm:text-lg font-bold text-white max-w-md leading-snug">
                   {campusImages[currentIdx].title}
                 </p>
               </div>
 
               {/* Progress Indicator Dots */}
-              <div className="flex items-center gap-2">
+              <div className="flex items-center gap-1.5 sm:gap-2">
                 {campusImages.map((_, i) => (
                   <button
                     key={i}
@@ -173,7 +173,7 @@ export function Institution() {
                     aria-label={`Go to slide ${i + 1}`}
                     className="h-1.5 rounded-full transition-all duration-300"
                     style={{
-                      width: currentIdx === i ? '24px' : '8px',
+                      width: currentIdx === i ? '20px' : '6px',
                       background: currentIdx === i ? '#5e17eb' : 'rgba(167, 139, 250, 0.3)',
                     }}
                   />

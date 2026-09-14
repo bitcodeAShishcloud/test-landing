@@ -270,6 +270,43 @@
   80% { transform: translate3d(0, -6px, 0); }
 }
 
+/* ─── 3D flip-card utilities ────────────────────────────────────────────────
+   Structure:
+     <div class="flip-scene group">             (perspective container, hover target)
+       <div class="flip-inner">                 (3D-rotates on hover, preserves-3d)
+         <div class="flip-face flip-face-front">…front…</div>
+         <div class="flip-face flip-face-back">…back…</div>
+       </div>
+     </div>
+   Faces must be the same size; back content is pre-rotated 180° so it
+   reads correctly once the card has flipped.
+*/
+.flip-scene {
+  perspective: 1400px;
+}
+.flip-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transform-style: preserve-3d;
+  transition: transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.flip-scene:hover .flip-inner {
+  transform: rotateY(180deg);
+}
+.flip-face {
+  position: absolute;
+  inset: 0;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+}
+.flip-face-front {
+  transform: rotateY(0deg);
+}
+.flip-face-back {
+  transform: rotateY(180deg);
+}
+
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after {
     animation-duration: 0.001ms !important;

@@ -370,7 +370,7 @@ export function Structure() {
         </div>
 
         {/* ── 7-Stage Tactical HUD Pipeline ── */}
-        <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-7 items-stretch">
+        <div className="grid gap-3.5 sm:gap-4 grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-7 items-stretch">
           {pipelineSteps.map((step, idx) => {
             const Icon = step.icon
             return (
