@@ -10,85 +10,101 @@ import {
   CheckCircle2,
   Flag,
   Award,
-  Sparkles,
-  ShieldAlert,
+  Swords,
+  Clock,
+  Shield,
+  Zap,
+  ArrowRight,
+  Terminal,
+  Activity,
 } from 'lucide-react'
 import { SectionHeading } from '@/components/section-heading'
 import { Reveal } from '@/components/motion-primitives'
 
-const phase1Points = [
-  'Remote pan-India participation',
+const phase1Highlights = [
+  'Remote pan-India live participation',
   'Jeopardy-style challenge format across 10 domains',
-  'Live dynamic leaderboard',
-  'Top squads advance to Grand Finale',
+  'Live dynamic flag scoring & leaderboard',
+  'Top qualifying squads advance to NIET finale',
 ]
 
-const phase2Points = [
-  'Hosted on-campus at NIET Greater Noida',
-  'Jeopardy Round + Live Attack & Defense warfare',
-  '8-hour continuous final showdown',
-  '₹24,000 prize pool, trophies & national recognition',
+const phase2Highlights = [
+  'Hosted on-ground at NIET Greater Noida campus',
+  'Dual-format: Jeopardy Round + Live Attack & Defense',
+  '8-hour continuous war-room showdown',
+  '₹24,000 prize pool, trophies & national acclaim',
 ]
 
-const phase1Steps = [
+const pipelineSteps = [
   {
     num: '01',
+    code: 'INIT.01',
+    phaseTag: 'Phase 1 · Prep',
     icon: Compass,
     title: 'Discover Event',
-    body: 'Learn the format, 10 challenge categories, scoring breakdown and what is at stake.',
-    badge: 'Phase 1 · Prep',
-    color: '#5e17eb',
+    desc: 'Explore the tournament format, 10 challenge categories, scoring dynamics and the ₹24,000 prize stakes.',
+    accent: '#5e17eb',
+    glow: 'rgba(94, 23, 235, 0.35)',
   },
   {
     num: '02',
+    code: 'AUTH.02',
+    phaseTag: 'Phase 1 · Entry',
     icon: UserPlus,
-    title: 'Register Your Team',
-    body: 'Assemble your squad (up to 3 members), complete the registration form and lock in your entry.',
-    badge: 'Phase 1 · Entry',
-    color: '#7c3aed',
+    title: 'Register Squad',
+    desc: 'Assemble your team of up to 3 cybersecurity gladiators, submit verification credentials and lock in your slot.',
+    accent: '#7c3aed',
+    glow: 'rgba(124, 58, 237, 0.35)',
   },
   {
     num: '03',
+    code: 'COMM.03',
+    phaseTag: 'Phase 1 · Comms',
     icon: MessageCircle,
-    title: 'Join WhatsApp Channel',
-    body: 'Stay in the loop — every official announcement, rule update and key deadline arrives here first.',
-    badge: 'Phase 1 · Comms',
-    color: '#5e17eb',
+    title: 'Join Ops Channel',
+    desc: 'Connect to the official WhatsApp broadcast for real-time challenge drops, hints, rule updates and live telemetry.',
+    accent: '#5e17eb',
+    glow: 'rgba(94, 23, 235, 0.35)',
   },
   {
     num: '04',
+    code: 'BATTLE.04',
+    phaseTag: 'Phase 1 · Battle',
     icon: Globe,
     title: 'Online Qualification',
-    body: 'Compete remotely in a Jeopardy-style CTF. Solve flags, climb the live leaderboard and prove your skills.',
-    badge: 'Phase 1 · Battle',
-    color: '#7c3aed',
+    desc: 'Engage in a 24-hour remote Jeopardy CTF. Breach challenges, exploit systems, submit flags and scale the leaderboard.',
+    accent: '#7c3aed',
+    glow: 'rgba(124, 58, 237, 0.35)',
   },
-]
-
-const phase2Steps = [
   {
     num: '05',
+    code: 'SELECT.05',
+    phaseTag: 'Phase 2 · Selection',
     icon: CheckCircle2,
-    title: 'Get Selected',
-    body: 'Top-performing teams receive official qualification calls and advance to the on-campus grand finale.',
-    badge: 'Phase 2 · Selection',
-    color: '#5e17eb',
+    title: 'Finalist Shortlist',
+    desc: 'Top-tier squads receive official qualification clearances, NIET campus passes and finale briefings.',
+    accent: '#38bdf8',
+    glow: 'rgba(56, 189, 248, 0.35)',
   },
   {
     num: '06',
-    icon: Flag,
-    title: 'Grand Finale Showdown',
-    body: 'A high-intensity Jeopardy round followed by an 8-hour live Attack & Defense cyber operations battle at NIET.',
-    badge: 'Phase 2 · Arena',
-    color: '#7c3aed',
+    code: 'ARENA.06',
+    phaseTag: 'Phase 2 · Warfare',
+    icon: Swords,
+    title: 'On-Campus Showdown',
+    desc: '8-hour continuous cyber combat at NIET Greater Noida featuring live attack-defense warfare and high-tier challenges.',
+    accent: '#f97316',
+    glow: 'rgba(249, 115, 22, 0.35)',
   },
   {
     num: '07',
+    code: 'VICTORY.07',
+    phaseTag: 'Phase 2 · Podium',
     icon: Award,
-    title: 'Win Recognition & Prizes',
-    body: 'Claim your share of the ₹24,000 prize pool, championship trophies, certificates and national acclaim.',
-    badge: 'Phase 2 · Podium',
-    color: '#e83e8c',
+    title: 'Championship Podium',
+    desc: 'Win recognition, claim your share of the ₹24,000 cash pool, prestige trophies, certificates and industry acclaim.',
+    accent: '#e83e8c',
+    glow: 'rgba(232, 62, 140, 0.4)',
   },
 ]
 
@@ -106,246 +122,321 @@ export function Structure() {
       {/* Anchor for backward compatibility with #structure */}
       <span id="structure" className="absolute -top-24" aria-hidden="true" />
 
-      {/* Background cyber grid */}
-      <div className="absolute inset-0 grid-lines opacity-50" aria-hidden="true" />
+      {/* Cyber Circuit Mesh Background */}
+      <div className="absolute inset-0 grid-lines opacity-60" aria-hidden="true" />
       <div
-        className="pointer-events-none absolute inset-x-0 top-0 h-40 bg-gradient-to-b from-[#050816] to-transparent"
+        className="pointer-events-none absolute inset-x-0 top-0 h-48 bg-gradient-to-b from-[#050816] to-transparent"
+        aria-hidden="true"
+      />
+      <div
+        className="pointer-events-none absolute -left-48 top-1/4 size-96 rounded-full blur-3xl opacity-20"
+        style={{ background: 'radial-gradient(circle, #5e17eb 0%, transparent 70%)' }}
+        aria-hidden="true"
+      />
+      <div
+        className="pointer-events-none absolute -right-48 top-2/3 size-96 rounded-full blur-3xl opacity-20"
+        style={{ background: 'radial-gradient(circle, #e83e8c 0%, transparent 70%)' }}
         aria-hidden="true"
       />
 
       <div className="relative mx-auto max-w-6xl px-4">
-        {/* Single Unified Section Heading */}
+        {/* Section Heading */}
         <SectionHeading
-          eyebrow="Enter The Protocol · Structure & Timeline"
+          eyebrow="Tournament Protocol · Structure & Timeline"
           title="Beyond theory. Into real-world cyber operations."
-          description="From initial sign-up to the championship podium — follow the complete tactical roadmap across two intense phases that separate the curious from the capable."
+          description="Ghost Protocol CTF 2.0 is engineered as a two-phase cyber tournament bridging classroom fundamentals to live offensive and defensive operations. Track the full pipeline from your first registration to the championship podium."
         />
 
-        {/* ── 2 Unified Phase Blocks along a continuous spine ── */}
-        <div className="mt-16 space-y-20">
-          {/* ════════════ PHASE 1 BLOCK: ONLINE QUALIFICATION ════════════ */}
-          <div className="relative">
-            {/* Phase 1 Header Banner Card */}
-            <Reveal y={20}>
+        {/* ── 2 Main Phase Battleground Overview Cards ── */}
+        <div className="mt-14 grid gap-6 lg:grid-cols-2">
+          {/* ── Phase 1: Online Qualification Card ── */}
+          <Reveal y={24} className="h-full">
+            <div
+              className="relative flex h-full flex-col justify-between overflow-hidden rounded-2xl p-6 sm:p-8 glass-strong transition-all duration-300 hover:shadow-[0_0_35px_rgba(94,23,235,0.28)] group"
+              style={{
+                background: 'linear-gradient(180deg, #0D1425 0%, #090E1C 100%)',
+                border: '1px solid rgba(94, 23, 235, 0.28)',
+              }}
+            >
+              {/* Top Cyber Laser Line */}
               <div
-                className="relative overflow-hidden rounded-2xl p-6 sm:p-8 glass-strong mb-10"
+                className="absolute inset-x-0 top-0 h-1"
                 style={{
-                  background: '#0D1425',
-                  border: '1px solid rgba(94, 23, 235, 0.28)',
+                  background: 'linear-gradient(90deg, #5e17eb 0%, #a78bfa 50%, transparent 100%)',
                 }}
-              >
-                <div
-                  className="absolute inset-x-0 top-0 h-1"
-                  style={{ background: 'linear-gradient(90deg, #5e17eb, #7c3aed, transparent)' }}
-                />
+              />
 
-                <div className="grid gap-6 lg:grid-cols-[1.2fr_1fr] items-center">
-                  <div>
-                    <div className="flex items-center gap-3">
-                      <span
-                        className="grid size-11 place-items-center rounded-xl"
-                        style={{
-                          background: 'rgba(94, 23, 235, 0.15)',
-                          border: '1px solid rgba(94, 23, 235, 0.4)',
-                        }}
-                      >
-                        <Globe className="size-5 text-[#a78bfa]" />
-                      </span>
-                      <div>
-                        <span className="font-mono text-xs font-semibold uppercase tracking-[0.2em] text-[#a78bfa]">
-                          Phase 01 · Online Round
-                        </span>
-                        <h3 className="font-display text-2xl sm:text-3xl font-bold text-white">
-                          Online Qualification
-                        </h3>
-                      </div>
-                    </div>
-                    <p className="mt-3 text-sm leading-relaxed text-[#9ca3af]">
-                      Compete remotely from anywhere in India in a high-intensity Jeopardy-style CTF across 10 specialized cyber domains to secure your squad&apos;s ticket to the Grand Finale.
-                    </p>
-                  </div>
-
-                  <div className="rounded-xl p-4 bg-[#111A2E]/70 border border-[rgba(94,23,235,0.18)]">
-                    <span className="font-mono text-[11px] uppercase tracking-wider text-[#a78bfa] block mb-2.5 font-semibold">
-                      Phase 1 Highlights
-                    </span>
-                    <ul className="space-y-2 text-xs text-[#CBD5E1]">
-                      {phase1Points.map((pt) => (
-                        <li key={pt} className="flex items-center gap-2">
-                          <span className="size-1.5 rounded-full bg-[#5e17eb] shrink-0" />
-                          <span>{pt}</span>
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-                </div>
-              </div>
-            </Reveal>
-
-            {/* Phase 1 Steps Grid */}
-            <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-              {phase1Steps.map((step, idx) => {
-                const Icon = step.icon
-                return (
-                  <Reveal key={step.title} y={20} delay={idx * 0.06} className="h-full">
-                    <div
-                      className="relative h-full flex flex-col justify-between overflow-hidden rounded-xl p-5 glass transition-all duration-300 hover:-translate-y-1 hover:border-[#5e17eb]"
+              <div>
+                {/* Header Badge */}
+                <div className="flex items-center justify-between gap-3">
+                  <div className="flex items-center gap-2.5">
+                    <span
+                      className="grid size-12 place-items-center rounded-xl transition-transform duration-300 group-hover:scale-105"
                       style={{
-                        background: '#0D1425',
-                        border: '1px solid rgba(94, 23, 235, 0.18)',
+                        background: 'rgba(94, 23, 235, 0.18)',
+                        border: '1px solid rgba(94, 23, 235, 0.45)',
+                        boxShadow: '0 0 16px rgba(94, 23, 235, 0.25)',
                       }}
                     >
-                      <div className="absolute inset-x-0 top-0 h-0.5" style={{ background: step.color }} />
-
-                      <div>
-                        <div className="flex items-center justify-between">
-                          <span
-                            className="grid size-9 place-items-center rounded-lg"
-                            style={{
-                              background: `${step.color}18`,
-                              border: `1px solid ${step.color}33`,
-                            }}
-                          >
-                            <Icon className="size-4" style={{ color: step.color }} />
-                          </span>
-                          <span className="font-display text-2xl font-bold font-mono text-[#68738D]/30">
-                            {step.num}
-                          </span>
-                        </div>
-
-                        <div className="mt-4">
-                          <span
-                            className="text-[10px] font-mono font-semibold uppercase tracking-wider block"
-                            style={{ color: '#a78bfa' }}
-                          >
-                            {step.badge}
-                          </span>
-                          <h4 className="mt-0.5 font-display text-base font-bold text-white leading-tight">
-                            {step.title}
-                          </h4>
-                          <p className="mt-2 text-xs leading-relaxed text-[#9ca3af]">
-                            {step.body}
-                          </p>
-                        </div>
-                      </div>
+                      <Globe className="size-6 text-[#a78bfa]" />
+                    </span>
+                    <div>
+                      <span className="font-mono text-[11px] font-semibold uppercase tracking-[0.2em] text-[#a78bfa] flex items-center gap-1.5">
+                        <span className="size-1.5 rounded-full bg-[#a78bfa] animate-ping" />
+                        Phase 01
+                      </span>
+                      <h3 className="font-display text-2xl sm:text-3xl font-bold text-white">
+                        Online Qualification
+                      </h3>
                     </div>
-                  </Reveal>
-                )
-              })}
-            </div>
-          </div>
+                  </div>
 
-          {/* ════════════ PHASE 2 BLOCK: OFFLINE GRAND FINALE ════════════ */}
-          <div className="relative">
-            {/* Phase 2 Header Banner Card */}
-            <Reveal y={20}>
-              <div
-                className="relative overflow-hidden rounded-2xl p-6 sm:p-8 glass-strong mb-10"
-                style={{
-                  background: '#0D1425',
-                  border: '1px solid rgba(232, 62, 140, 0.28)',
-                }}
-              >
+                  <span
+                    className="hidden sm:inline-flex rounded-full px-3 py-1 font-mono text-xs font-semibold uppercase tracking-wider text-[#a78bfa]"
+                    style={{
+                      background: 'rgba(94, 23, 235, 0.12)',
+                      border: '1px solid rgba(94, 23, 235, 0.3)',
+                    }}
+                  >
+                    Remote Jeopardy
+                  </span>
+                </div>
+
+                <p className="mt-4 text-sm leading-relaxed text-[#9ca3af]">
+                  Compete remotely across India in a Jeopardy-style CTF across 10 challenge domains. Score flags on the dynamic leaderboard to qualify for the on-campus showdown.
+                </p>
+
+                {/* Tech Pills Bar */}
+                <div className="mt-5 flex flex-wrap gap-2 text-xs font-mono">
+                  <span className="rounded-lg px-2.5 py-1 bg-[#111A2E] text-[#CBD5E1] border border-[rgba(94,23,235,0.18)]">
+                    ⚔️ 10 Domains
+                  </span>
+                  <span className="rounded-lg px-2.5 py-1 bg-[#111A2E] text-[#CBD5E1] border border-[rgba(94,23,235,0.18)]">
+                    📡 Pan-India Remote
+                  </span>
+                  <span className="rounded-lg px-2.5 py-1 bg-[#111A2E] text-[#CBD5E1] border border-[rgba(94,23,235,0.18)]">
+                    ⏱️ Dynamic Scoring
+                  </span>
+                </div>
+
                 <div
-                  className="absolute inset-x-0 top-0 h-1"
-                  style={{ background: 'linear-gradient(90deg, #7c3aed, #e83e8c, transparent)' }}
+                  className="my-5 h-px w-full"
+                  style={{ background: 'rgba(94, 23, 235, 0.18)' }}
                 />
 
-                <div className="grid gap-6 lg:grid-cols-[1.2fr_1fr] items-center">
-                  <div>
-                    <div className="flex items-center gap-3">
-                      <span
-                        className="grid size-11 place-items-center rounded-xl"
-                        style={{
-                          background: 'rgba(232, 62, 140, 0.15)',
-                          border: '1px solid rgba(232, 62, 140, 0.4)',
-                        }}
-                      >
-                        <Building2 className="size-5 text-[#e83e8c]" />
-                      </span>
-                      <div>
-                        <span className="font-mono text-xs font-semibold uppercase tracking-[0.2em] text-[#e83e8c]">
-                          Phase 02 · On-Campus Showdown
-                        </span>
-                        <h3 className="font-display text-2xl sm:text-3xl font-bold text-white">
-                          Offline Grand Finale
-                        </h3>
-                      </div>
-                    </div>
-                    <p className="mt-3 text-sm leading-relaxed text-[#9ca3af]">
-                      The top qualified teams battle live at the NIET Greater Noida campus arena in an intense 8-hour showdown combining Jeopardy questions and real-time Attack & Defense cyber warfare.
-                    </p>
-                  </div>
-
-                  <div className="rounded-xl p-4 bg-[#111A2E]/70 border border-[rgba(232,62,140,0.18)]">
-                    <span className="font-mono text-[11px] uppercase tracking-wider text-[#e83e8c] block mb-2.5 font-semibold">
-                      Phase 2 Highlights
-                    </span>
-                    <ul className="space-y-2 text-xs text-[#CBD5E1]">
-                      {phase2Points.map((pt) => (
-                        <li key={pt} className="flex items-center gap-2">
-                          <span className="size-1.5 rounded-full bg-[#e83e8c] shrink-0" />
-                          <span>{pt}</span>
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-                </div>
+                {/* Points List */}
+                <ul className="space-y-2.5 text-xs sm:text-sm text-[#CBD5E1]">
+                  {phase1Highlights.map((pt) => (
+                    <li key={pt} className="flex items-start gap-2.5">
+                      <span className="mt-1.5 size-1.5 shrink-0 rounded-full bg-[#5e17eb] shadow-[0_0_6px_#5e17eb]" />
+                      <span>{pt}</span>
+                    </li>
+                  ))}
+                </ul>
               </div>
-            </Reveal>
 
-            {/* Phase 2 Steps Grid */}
-            <div className="grid gap-4 sm:grid-cols-3">
-              {phase2Steps.map((step, idx) => {
-                const Icon = step.icon
-                return (
-                  <Reveal key={step.title} y={20} delay={idx * 0.08} className="h-full">
-                    <div
-                      className="relative h-full flex flex-col justify-between overflow-hidden rounded-xl p-5 glass transition-all duration-300 hover:-translate-y-1 hover:border-[#e83e8c]"
+              {/* Card Footer Indicator */}
+              <div
+                className="mt-6 flex items-center justify-between pt-4 border-t border-[rgba(94,23,235,0.15)] text-xs font-mono"
+                style={{ color: '#68738D' }}
+              >
+                <span className="text-[#a78bfa]">Milestones 01 → 04</span>
+                <span className="flex items-center gap-1 text-white font-medium">
+                  Pipeline Step 1–4 <ArrowRight className="size-3 text-[#a78bfa]" />
+                </span>
+              </div>
+            </div>
+          </Reveal>
+
+          {/* ── Phase 2: Offline Grand Finale Card ── */}
+          <Reveal y={24} delay={0.08} className="h-full">
+            <div
+              className="relative flex h-full flex-col justify-between overflow-hidden rounded-2xl p-6 sm:p-8 glass-strong transition-all duration-300 hover:shadow-[0_0_35px_rgba(232,62,140,0.28)] group"
+              style={{
+                background: 'linear-gradient(180deg, #0D1425 0%, #090E1C 100%)',
+                border: '1px solid rgba(232, 62, 140, 0.28)',
+              }}
+            >
+              {/* Top Cyber Laser Line */}
+              <div
+                className="absolute inset-x-0 top-0 h-1"
+                style={{
+                  background: 'linear-gradient(90deg, #e83e8c 0%, #ff5500 50%, transparent 100%)',
+                }}
+              />
+
+              <div>
+                {/* Header Badge */}
+                <div className="flex items-center justify-between gap-3">
+                  <div className="flex items-center gap-2.5">
+                    <span
+                      className="grid size-12 place-items-center rounded-xl transition-transform duration-300 group-hover:scale-105"
                       style={{
-                        background: '#0D1425',
-                        border: '1px solid rgba(94, 23, 235, 0.18)',
+                        background: 'rgba(232, 62, 140, 0.18)',
+                        border: '1px solid rgba(232, 62, 140, 0.45)',
+                        boxShadow: '0 0 16px rgba(232, 62, 140, 0.25)',
                       }}
                     >
-                      <div className="absolute inset-x-0 top-0 h-0.5" style={{ background: step.color }} />
-
-                      <div>
-                        <div className="flex items-center justify-between">
-                          <span
-                            className="grid size-9 place-items-center rounded-lg"
-                            style={{
-                              background: `${step.color}18`,
-                              border: `1px solid ${step.color}33`,
-                            }}
-                          >
-                            <Icon className="size-4" style={{ color: step.color }} />
-                          </span>
-                          <span className="font-display text-2xl font-bold font-mono text-[#68738D]/30">
-                            {step.num}
-                          </span>
-                        </div>
-
-                        <div className="mt-4">
-                          <span
-                            className="text-[10px] font-mono font-semibold uppercase tracking-wider block"
-                            style={{ color: step.color === '#e83e8c' ? '#e83e8c' : '#a78bfa' }}
-                          >
-                            {step.badge}
-                          </span>
-                          <h4 className="mt-0.5 font-display text-base font-bold text-white leading-tight">
-                            {step.title}
-                          </h4>
-                          <p className="mt-2 text-xs leading-relaxed text-[#9ca3af]">
-                            {step.body}
-                          </p>
-                        </div>
-                      </div>
+                      <Building2 className="size-6 text-[#e83e8c]" />
+                    </span>
+                    <div>
+                      <span className="font-mono text-[11px] font-semibold uppercase tracking-[0.2em] text-[#e83e8c] flex items-center gap-1.5">
+                        <span className="size-1.5 rounded-full bg-[#e83e8c] animate-ping" />
+                        Phase 02
+                      </span>
+                      <h3 className="font-display text-2xl sm:text-3xl font-bold text-white">
+                        Offline Grand Finale
+                      </h3>
                     </div>
-                  </Reveal>
-                )
-              })}
+                  </div>
+
+                  <span
+                    className="hidden sm:inline-flex rounded-full px-3 py-1 font-mono text-xs font-semibold uppercase tracking-wider text-[#e83e8c]"
+                    style={{
+                      background: 'rgba(232, 62, 140, 0.12)',
+                      border: '1px solid rgba(232, 62, 140, 0.3)',
+                    }}
+                  >
+                    NIET Campus Arena
+                  </span>
+                </div>
+
+                <p className="mt-4 text-sm leading-relaxed text-[#9ca3af]">
+                  Qualifying squads assemble on-ground at NIET Greater Noida for an intense 8-hour showdown combining high-complexity Jeopardy questions and real-time live Attack & Defense cyber warfare.
+                </p>
+
+                {/* Tech Pills Bar */}
+                <div className="mt-5 flex flex-wrap gap-2 text-xs font-mono">
+                  <span className="rounded-lg px-2.5 py-1 bg-[#111A2E] text-[#CBD5E1] border border-[rgba(232,62,140,0.2)]">
+                    🏛️ NIET Greater Noida
+                  </span>
+                  <span className="rounded-lg px-2.5 py-1 bg-[#111A2E] text-[#CBD5E1] border border-[rgba(232,62,140,0.2)]">
+                    ⚔️ Attack & Defense
+                  </span>
+                  <span className="rounded-lg px-2.5 py-1 bg-[#111A2E] text-[#CBD5E1] border border-[rgba(232,62,140,0.2)]">
+                    🏆 ₹24,000 Rewards
+                  </span>
+                </div>
+
+                <div
+                  className="my-5 h-px w-full"
+                  style={{ background: 'rgba(232, 62, 140, 0.18)' }}
+                />
+
+                {/* Points List */}
+                <ul className="space-y-2.5 text-xs sm:text-sm text-[#CBD5E1]">
+                  {phase2Highlights.map((pt) => (
+                    <li key={pt} className="flex items-start gap-2.5">
+                      <span className="mt-1.5 size-1.5 shrink-0 rounded-full bg-[#e83e8c] shadow-[0_0_6px_#e83e8c]" />
+                      <span>{pt}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+
+              {/* Card Footer Indicator */}
+              <div
+                className="mt-6 flex items-center justify-between pt-4 border-t border-[rgba(232,62,140,0.15)] text-xs font-mono"
+                style={{ color: '#68738D' }}
+              >
+                <span className="text-[#e83e8c]">Milestones 05 → 07</span>
+                <span className="flex items-center gap-1 text-white font-medium">
+                  Championship Stage <ArrowRight className="size-3 text-[#e83e8c]" />
+                </span>
+              </div>
             </div>
+          </Reveal>
+        </div>
+
+        {/* ── Visual Section Divider with Energy Beam ── */}
+        <div className="relative my-16 flex items-center justify-center">
+          <div
+            className="h-px w-full"
+            style={{
+              background:
+                'linear-gradient(90deg, transparent 0%, rgba(94,23,235,0.4) 30%, rgba(232,62,140,0.4) 70%, transparent 100%)',
+            }}
+          />
+          <div className="absolute flex items-center gap-2 rounded-full px-4 py-1.5 text-xs font-mono uppercase tracking-widest text-[#a78bfa] backdrop-blur-md"
+            style={{
+              background: 'rgba(13, 20, 37, 0.95)',
+              border: '1px solid rgba(94, 23, 235, 0.35)',
+              boxShadow: '0 0 20px rgba(94, 23, 235, 0.3)',
+            }}
+          >
+            <Activity className="size-3.5 text-[#a78bfa] animate-pulse" />
+            <span>Tactical Execution Pipeline (01 → 07)</span>
           </div>
+        </div>
+
+        {/* ── 7-Stage Tactical HUD Pipeline ── */}
+        <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-7 items-stretch">
+          {pipelineSteps.map((step, idx) => {
+            const Icon = step.icon
+            return (
+              <Reveal key={step.num} y={18} delay={idx * 0.05} className="h-full">
+                <div
+                  className="relative h-full flex flex-col justify-between overflow-hidden rounded-xl p-4 transition-all duration-300 hover:-translate-y-1.5 group"
+                  style={{
+                    background: '#0D1425',
+                    border: `1px solid ${step.accent}33`,
+                    boxShadow: `0 4px 20px -8px ${step.glow}`,
+                  }}
+                >
+                  {/* Top Glowing Indicator Line */}
+                  <div
+                    className="absolute inset-x-0 top-0 h-1"
+                    style={{ background: step.accent }}
+                  />
+
+                  <div>
+                    {/* Header: Number & Code */}
+                    <div className="flex items-center justify-between">
+                      <span
+                        className="grid size-8 place-items-center rounded-lg transition-transform duration-300 group-hover:scale-110"
+                        style={{
+                          background: `${step.accent}18`,
+                          border: `1px solid ${step.accent}44`,
+                        }}
+                      >
+                        <Icon className="size-4" style={{ color: step.accent }} />
+                      </span>
+                      <span
+                        className="font-mono text-[10px] font-bold tracking-wider"
+                        style={{ color: step.accent }}
+                      >
+                        {step.num}
+                      </span>
+                    </div>
+
+                    <div className="mt-3">
+                      <span
+                        className="font-mono text-[9px] font-semibold uppercase tracking-wider block"
+                        style={{ color: '#68738D' }}
+                      >
+                        {step.phaseTag}
+                      </span>
+                      <h4 className="mt-0.5 font-display text-sm font-bold text-white leading-snug">
+                        {step.title}
+                      </h4>
+                      <p className="mt-1.5 text-[11px] leading-relaxed text-[#9ca3af]">
+                        {step.desc}
+                      </p>
+                    </div>
+                  </div>
+
+                  {/* Bottom Pipeline Progress Notches */}
+                  <div className="mt-4 pt-2.5 border-t border-[rgba(94,23,235,0.12)] flex items-center justify-between">
+                    <span className="font-mono text-[9px] text-[#68738D]">{step.code}</span>
+                    <span
+                      className="size-1.5 rounded-full"
+                      style={{ background: step.accent }}
+                    />
+                  </div>
+                </div>
+              </Reveal>
+            )
+          })}
         </div>
       </div>
     </section>

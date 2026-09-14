@@ -152,14 +152,14 @@ export function Hero() {
           initial={{ opacity: 0, x: 40, scale: 0.96 }}
           animate={{ opacity: 1, x: 0, scale: 1 }}
           transition={{ duration: 0.9, delay: 0.35, ease: [0.22, 1, 0.36, 1] }}
-          className="mx-auto w-full max-w-lg"
+          className="mx-auto w-full max-w-xl"
         >
-          <div className="relative overflow-hidden rounded-2xl drop-shadow-[0_0_35px_rgba(94,23,235,0.35)]">
+          <div className="relative overflow-hidden rounded-2xl drop-shadow-[0_0_40px_rgba(94,23,235,0.4)]">
             <Image
               src="/hero-banner.webp"
               alt="NIET Presents Cyber Invaders Capture The Flag"
-              width={1200}
-              height={498}
+              width={1400}
+              height={580}
               className="w-full h-auto object-cover rounded-2xl transition-transform duration-500 hover:scale-[1.02]"
               priority
             />

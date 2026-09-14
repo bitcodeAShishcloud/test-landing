@@ -7,7 +7,7 @@ import { siteLinks } from '@/lib/links'
 const socials = [
   { icon: AtSign, label: 'Instagram', href: siteLinks.instagram },
   { icon: Send, label: 'WhatsApp Channel', href: siteLinks.whatsappChannel },
-  { icon: Globe, label: 'Club Official Portal', href: siteLinks.clubWebsite },
+  { image: '/cyber-invaders-crest.webp', label: 'Club Official Portal', href: siteLinks.clubWebsite },
   { image: '/niet-crest.webp', label: 'NIET Official Website', href: siteLinks.nietWebsite },
 ]
 
