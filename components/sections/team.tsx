@@ -17,88 +17,103 @@ import {
   Cpu,
   Layers,
   Award,
+  Quote,
+  Building2,
 } from 'lucide-react'
 import { SectionHeading } from '@/components/section-heading'
 import { Reveal, StaggerGroup, staggerItem } from '@/components/motion-primitives'
 
-/* ─── Mentors & Faculty Guides Data ────────────────────────────────────────── */
+/* ─── Director / Chief Patron ────────────────────────────────────────────── */
+const chiefPatron = {
+  name: 'Dr. Vinod M. Kapse',
+  designation: 'Director, NIET Greater Noida',
+  role: 'Patron-in-Chief & Institutional Director',
+  quote:
+    'At NIET, we champion practical, hands-on innovation over theoretical learning. Ghost Protocol CTF 2.0 embodies our mission to cultivate elite cyber talent, ethical hackers, and defensive strategists capable of securing our nation’s critical digital frontiers.',
+  dept: 'Noida Institute of Engineering and Technology (NIET)',
+  tag: 'PATRON-IN-CHIEF',
+  image: '/director-niet.webp',
+  color: '#5e17eb',
+}
+
+/* ─── Faculty Guides & Advisory Mentors Data ──────────────────────────────── */
 const mentors = [
   {
-    name: 'Dr. Mentor Name',
-    role: 'Faculty Advisor & Head Guide',
-    dept: 'Department of Computer Science & Engineering',
+    name: 'Prof. (Dr.) Chandra Shekhar Yadav',
+    role: 'Dean & Chief Faculty Advisor',
+    dept: 'School of Computer Applications, NIET',
     institute: 'NIET Greater Noida',
-    tag: 'LEAD ADVISOR',
+    tag: 'DEAN & ADVISOR',
     color: '#5e17eb',
-    image: null, // Ready for photo url e.g. '/team/mentor-1.webp'
+    image: '/dr-cs-yadav.webp',
   },
   {
-    name: 'Prof. Faculty Name',
-    role: 'Technical Guide & Lab Director',
-    dept: 'Cyber Security & Forensics CoE',
+    name: 'Dr. Rashmi Sharma',
+    role: 'HOD & Faculty Guide',
+    dept: 'Dept. of CSE (Cyber Security), NIET',
     institute: 'NIET Greater Noida',
-    tag: 'TECHNICAL GUIDE',
+    tag: 'HOD · CYBER SECURITY',
     color: '#7c3aed',
-    image: null, // Ready for photo url
+    image: '/dr-rashmi-sharma.webp',
   },
   {
-    name: 'Dr. Advisor Name',
-    role: 'Academic Mentor & Innovation Lead',
-    dept: 'Center for Cyber Security Innovation',
+    name: 'Dr. Vikas Sagar',
+    role: 'Deputy Head & Faculty Advisor',
+    dept: 'Dept. of CSE / Cryptography & Security, NIET',
     institute: 'NIET Greater Noida',
-    tag: 'ACADEMIC MENTOR',
+    tag: 'DY. HEAD & ADVISOR',
     color: '#e83e8c',
-    image: null, // Ready for photo url
+    image: '/dr-vikas-sagar.webp',
   },
 ]
 
-/* ─── Core Student Leadership Data ─────────────────────────────────────────── */
+/* ─── Core Organizing Council Data ─────────────────────────────────────────── */
 const coreLeads = [
   {
-    name: 'Core Lead Name',
-    role: 'Tournament Director',
-    team: 'Executive Council',
-    tag: 'DIRECTOR',
+    name: 'Harsh Chauhan',
+    role: 'Faculty Coordinator',
+    team: 'Faculty Council',
+    tag: 'FACULTY',
     color: '#5e17eb',
     image: null,
   },
   {
-    name: 'Core Lead Name',
-    role: 'Technical Lead & Challenge Architect',
-    team: 'Platform & Challenges',
-    tag: 'TECH HEAD',
+    name: 'Deepika Singh',
+    role: 'Faculty Coordinator',
+    team: 'Faculty Council',
+    tag: 'FACULTY',
     color: '#7c3aed',
     image: null,
   },
   {
-    name: 'Core Lead Name',
-    role: 'Operations & Logistics Head',
-    team: 'Arena Operations',
-    tag: 'OPS HEAD',
+    name: 'Ashish Gupta',
+    role: 'Technical Head',
+    team: 'Cyber Invaders Club',
+    tag: 'TECH HEAD',
     color: '#38bdf8',
     image: null,
   },
   {
-    name: 'Core Lead Name',
-    role: 'Infra & Attack-Defense Lead',
-    team: 'Server & Lab Infra',
-    tag: 'INFRA LEAD',
-    color: '#f97316',
-    image: null,
-  },
-  {
-    name: 'Core Lead Name',
-    role: 'Design & Visual Identity Lead',
-    team: 'Creative & UI/UX',
-    tag: 'DESIGN LEAD',
+    name: 'Ananya Paliwal',
+    role: 'President',
+    team: 'Cyber Invaders Club',
+    tag: 'PRESIDENT',
     color: '#e83e8c',
     image: null,
   },
   {
-    name: 'Core Lead Name',
-    role: 'PR, Sponsorship & Outreach Head',
-    team: 'Outreach & Comms',
-    tag: 'PR HEAD',
+    name: 'Sudhanshu Raj',
+    role: 'Vice President',
+    team: 'Cyber Invaders Club',
+    tag: 'VICE PRESIDENT',
+    color: '#f97316',
+    image: null,
+  },
+  {
+    name: 'Aditya Kumar Singh',
+    role: 'Vice President',
+    team: 'Cyber Invaders Club',
+    tag: 'VICE PRESIDENT',
     color: '#22c55e',
     image: null,
   },
@@ -146,93 +161,170 @@ export function Team() {
         style={{
           background:
             'radial-gradient(60% 40% at 50% 0%, rgba(94,23,235,0.08) 0%, transparent 60%), radial-gradient(50% 35% at 50% 100%, rgba(232,62,140,0.06) 0%, transparent 60%)',
-          borderTop: '1px solid rgba(94, 23, 235, 0.18)',
         }}
       />
       <div className="absolute inset-0 grid-lines opacity-30" aria-hidden="true" />
 
       <div className="relative mx-auto max-w-6xl px-4">
         <SectionHeading
-          eyebrow="The Organizing Crew · Faculty & Students"
+          eyebrow="Leadership & Organizing Crew"
           title="Our Mentors, Teams & Crew"
-          description="Ghost Protocol CTF 2.0 is powered by the faculty leadership of NIET Greater Noida and the student hackers of Cyber Invaders club."
+          description="Ghost Protocol CTF 2.0 is staged under the institutional leadership of NIET Greater Noida and driven by the cybersecurity students of Cyber Invaders."
         />
 
-        {/* ════════════════════════ 1. MENTORS & FACULTY GUIDES ════════════════════════ */}
+        {/* ════════════════════════ 1. DIRECTOR / CHIEF PATRON SPOTLIGHT (BORDERLESS) ════════════════════════ */}
         <div className="mt-16">
+          <Reveal y={20}>
+            <div
+              className="relative overflow-hidden rounded-3xl p-6 sm:p-8 md:p-10 transition-all duration-300 drop-shadow-[0_0_40px_rgba(94,23,235,0.25)]"
+              style={{
+                background: 'linear-gradient(135deg, #0D1425 0%, #090E1C 100%)',
+              }}
+            >
+              {/* Top Cyber Laser Accent Line */}
+              <div
+                className="absolute inset-x-0 top-0 h-1"
+                style={{
+                  background: 'linear-gradient(90deg, #5e17eb 0%, #a78bfa 50%, #e83e8c 100%)',
+                }}
+              />
+
+              <div className="grid gap-8 lg:grid-cols-[300px_1fr] items-center">
+                {/* Director Photo Frame (100% Borderless) */}
+                <div className="flex justify-center">
+                  <div className="relative w-56 sm:w-64 aspect-[4/5] overflow-hidden rounded-2xl drop-shadow-[0_0_35px_rgba(94,23,235,0.35)] transition-transform duration-300 hover:scale-[1.02]">
+                    <Image
+                      src={chiefPatron.image}
+                      alt={`${chiefPatron.name} - ${chiefPatron.designation}`}
+                      fill
+                      className="object-cover object-top rounded-2xl"
+                      priority
+                    />
+                    <div
+                      className="absolute inset-0 bg-gradient-to-t from-[#050816] via-transparent to-transparent opacity-50 pointer-events-none rounded-2xl"
+                      aria-hidden="true"
+                    />
+                  </div>
+                </div>
+
+                {/* Director Info & Vision Message */}
+                <div className="flex flex-col justify-between h-full">
+                  <div>
+                    <div className="flex flex-wrap items-center gap-2.5 mb-3">
+                      <span
+                        className="rounded-full px-3 py-1 font-mono text-[10px] sm:text-xs font-semibold uppercase tracking-wider text-white"
+                        style={{
+                          background: 'linear-gradient(90deg, #5e17eb, #7c3aed)',
+                          boxShadow: '0 0 14px rgba(94, 23, 235, 0.4)',
+                        }}
+                      >
+                        {chiefPatron.tag}
+                      </span>
+                      <span className="font-mono text-xs text-[#a78bfa]">
+                        NIET Leadership
+                      </span>
+                    </div>
+
+                    <h3 className="font-display text-2xl sm:text-3xl md:text-4xl font-bold text-white leading-tight">
+                      {chiefPatron.name}
+                    </h3>
+                    <p className="mt-1 font-display text-sm sm:text-base font-semibold text-[#a78bfa]">
+                      {chiefPatron.designation}
+                    </p>
+                    <p className="mt-0.5 text-xs text-[#68738D] font-mono">
+                      {chiefPatron.dept}
+                    </p>
+
+                    <div
+                      className="my-5 h-px w-full"
+                      style={{ background: 'rgba(94, 23, 235, 0.12)' }}
+                    />
+
+                    {/* Vision Quote Box (Borderless) */}
+                    <div className="relative rounded-2xl p-4 sm:p-5 bg-[#111A2E]/60">
+                      <Quote className="size-6 text-[#a78bfa]/40 mb-2" />
+                      <p className="text-xs sm:text-sm leading-relaxed text-[#CBD5E1] italic">
+                        &ldquo;{chiefPatron.quote}&rdquo;
+                      </p>
+                    </div>
+                  </div>
+
+                  <div className="mt-6 pt-4 flex flex-wrap items-center justify-between gap-3 text-xs font-mono text-[#68738D]">
+                    <span className="flex items-center gap-1.5 text-[#CBD5E1]">
+                      <Building2 className="size-3.5 text-[#5e17eb]" />
+                      Noida Institute of Engineering and Technology
+                    </span>
+                    <span className="text-[#a78bfa]">Greater Noida, Uttar Pradesh</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </Reveal>
+        </div>
+
+        {/* ════════════════════════ 2. FACULTY GUIDES & ADVISORY MENTORS (BORDERLESS) ════════════════════════ */}
+        <div className="mt-20">
           <Reveal>
-            <div className="mb-8 flex items-center justify-between gap-3 border-b border-[rgba(94,23,235,0.18)] pb-4">
+            <div className="mb-8 flex items-center justify-between gap-3 pb-4">
               <div className="flex items-center gap-3">
                 <span
                   className="grid size-10 place-items-center rounded-xl"
                   style={{
                     background: 'rgba(94, 23, 235, 0.15)',
-                    border: '1px solid rgba(94, 23, 235, 0.35)',
                   }}
                 >
                   <GraduationCap className="size-5 text-[#a78bfa]" />
                 </span>
                 <div>
                   <h3 className="font-display text-xl sm:text-2xl font-bold text-white">
-                    Faculty Guides & Mentors
+                    Faculty Advisors & Guides
                   </h3>
-                  <p className="text-xs text-[#9ca3af]">Academic oversight and tournament patronage</p>
+                  <p className="text-xs text-[#9ca3af]">Academic mentorship & department guidance</p>
                 </div>
               </div>
               <span className="hidden sm:inline-block font-mono text-xs text-[#68738D]">
-                NIET Faculty Board
+                Department of CSE / CoE
               </span>
             </div>
           </Reveal>
 
           <StaggerGroup className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-            {mentors.map((m, idx) => (
+            {mentors.map((m) => (
               <motion.div
                 key={m.role}
                 variants={staggerItem}
-                className="group relative flex flex-col justify-between overflow-hidden rounded-2xl p-6 glass-strong transition-all duration-300 hover:-translate-y-1.5 hover:shadow-[0_0_30px_rgba(94,23,235,0.25)]"
+                className="group relative flex flex-col justify-between overflow-hidden rounded-2xl p-6 transition-all duration-300 hover:-translate-y-1.5 drop-shadow-[0_0_24px_rgba(94,23,235,0.2)]"
                 style={{
                   background: '#0D1425',
-                  border: '1px solid rgba(94, 23, 235, 0.22)',
                 }}
               >
-                {/* Top Glowing Color Line */}
+                {/* Top Line Accent */}
                 <div
                   className="absolute inset-x-0 top-0 h-1"
                   style={{ background: m.color }}
                 />
 
                 <div>
-                  {/* Photo Frame Container */}
+                  {/* Photo Frame Container (100% Borderless) */}
                   <div className="relative mx-auto mb-6 flex justify-center">
-                    <div
-                      className="relative size-28 sm:size-32 overflow-hidden rounded-2xl p-1 transition-transform duration-300 group-hover:scale-105"
-                      style={{
-                        background: `linear-gradient(135deg, ${m.color} 0%, rgba(94,23,235,0.2) 100%)`,
-                        boxShadow: `0 0 20px -4px ${m.color}66`,
-                      }}
-                    >
-                      <div className="relative h-full w-full overflow-hidden rounded-xl bg-[#111A2E] flex items-center justify-center">
+                    <div className="relative size-28 sm:size-32 overflow-hidden rounded-2xl drop-shadow-[0_0_20px_rgba(94,23,235,0.3)] transition-transform duration-300 group-hover:scale-105">
+                      <div className="relative h-full w-full overflow-hidden rounded-2xl bg-[#111A2E] flex items-center justify-center">
                         {m.image ? (
                           <Image
                             src={m.image}
                             alt={m.name}
                             fill
-                            className="object-cover"
+                            className="object-cover object-top rounded-2xl"
                           />
                         ) : (
                           <div className="flex flex-col items-center justify-center gap-1.5 text-center p-2">
                             <GraduationCap className="size-8 text-[#a78bfa]" />
-                            <span className="font-mono text-[9px] uppercase tracking-wider text-[#68738D]">
+                            <span className="font-mono text-[8px] uppercase tracking-wider text-[#68738D]">
                               Faculty Photo
                             </span>
                           </div>
                         )}
                       </div>
-
-                      {/* Corner HUD Accent */}
-                      <span className="absolute top-1 left-1 size-2 border-t-2 border-l-2 border-white/60" />
-                      <span className="absolute bottom-1 right-1 size-2 border-b-2 border-r-2 border-white/60" />
                     </div>
                   </div>
 
@@ -242,7 +334,6 @@ export function Team() {
                       style={{
                         background: `${m.color}18`,
                         color: m.color === '#e83e8c' ? '#e83e8c' : '#a78bfa',
-                        border: `1px solid ${m.color}33`,
                       }}
                     >
                       {m.tag}
@@ -259,7 +350,7 @@ export function Team() {
                   </div>
                 </div>
 
-                <div className="mt-6 pt-3 border-t border-[rgba(94,23,235,0.14)] text-center">
+                <div className="mt-6 pt-3 text-center">
                   <span className="font-mono text-[11px] text-[#68738D]">
                     {m.institute}
                   </span>
@@ -269,16 +360,15 @@ export function Team() {
           </StaggerGroup>
         </div>
 
-        {/* ════════════════════════ 2. CORE STUDENT LEADERSHIP ════════════════════════ */}
+        {/* ════════════════════════ 3. CORE STUDENT LEADERSHIP (BORDERLESS) ════════════════════════ */}
         <div className="mt-20">
           <Reveal>
-            <div className="mb-8 flex items-center justify-between gap-3 border-b border-[rgba(94,23,235,0.18)] pb-4">
+            <div className="mb-8 flex items-center justify-between gap-3 pb-4">
               <div className="flex items-center gap-3">
                 <span
                   className="grid size-10 place-items-center rounded-xl"
                   style={{
                     background: 'rgba(232, 62, 140, 0.15)',
-                    border: '1px solid rgba(232, 62, 140, 0.35)',
                   }}
                 >
                   <Shield className="size-5 text-[#e83e8c]" />
@@ -287,7 +377,7 @@ export function Team() {
                   <h3 className="font-display text-xl sm:text-2xl font-bold text-white">
                     Core Organizing Council
                   </h3>
-                  <p className="text-xs text-[#9ca3af]">Student conveners and department heads of Cyber Invaders</p>
+                  <p className="text-xs text-[#9ca3af]">Faculty coordinators and executive leadership of Cyber Invaders</p>
                 </div>
               </div>
               <span className="hidden sm:inline-block font-mono text-xs text-[#a78bfa]">
@@ -297,14 +387,13 @@ export function Team() {
           </Reveal>
 
           <StaggerGroup className="grid gap-4 grid-cols-2 sm:grid-cols-3 lg:grid-cols-6">
-            {coreLeads.map((lead, idx) => (
+            {coreLeads.map((lead) => (
               <motion.div
-                key={lead.role}
+                key={lead.name}
                 variants={staggerItem}
-                className="group relative flex flex-col justify-between overflow-hidden rounded-2xl p-4 text-center glass transition-all duration-300 hover:-translate-y-1.5 hover:shadow-[0_0_24px_rgba(94,23,235,0.3)]"
+                className="group relative flex flex-col justify-between overflow-hidden rounded-2xl p-4 text-center transition-all duration-300 hover:-translate-y-1.5 drop-shadow-[0_0_20px_rgba(94,23,235,0.25)]"
                 style={{
                   background: '#0D1425',
-                  border: '1px solid rgba(94, 23, 235, 0.2)',
                 }}
               >
                 <div
@@ -313,22 +402,16 @@ export function Team() {
                 />
 
                 <div>
-                  {/* Photo Slot */}
+                  {/* Photo Slot (100% Borderless) */}
                   <div className="mx-auto mb-3 flex justify-center">
-                    <div
-                      className="relative size-16 sm:size-20 overflow-hidden rounded-xl p-0.5 transition-transform duration-300 group-hover:scale-105"
-                      style={{
-                        background: `linear-gradient(135deg, ${lead.color} 0%, rgba(94,23,235,0.2) 100%)`,
-                        boxShadow: `0 0 14px -4px ${lead.color}55`,
-                      }}
-                    >
-                      <div className="relative h-full w-full overflow-hidden rounded-[10px] bg-[#111A2E] flex items-center justify-center">
+                    <div className="relative size-16 sm:size-20 overflow-hidden rounded-xl drop-shadow-[0_0_14px_rgba(94,23,235,0.3)] transition-transform duration-300 group-hover:scale-105">
+                      <div className="relative h-full w-full overflow-hidden rounded-xl bg-[#111A2E] flex items-center justify-center">
                         {lead.image ? (
                           <Image
                             src={lead.image}
                             alt={lead.name}
                             fill
-                            className="object-cover"
+                            className="object-cover rounded-xl"
                           />
                         ) : (
                           <Shield className="size-6 text-[#a78bfa]" />
@@ -342,7 +425,6 @@ export function Team() {
                     style={{
                       background: `${lead.color}15`,
                       color: lead.color === '#e83e8c' ? '#e83e8c' : '#a78bfa',
-                      border: `1px solid ${lead.color}33`,
                     }}
                   >
                     {lead.tag}
@@ -356,7 +438,7 @@ export function Team() {
                   </p>
                 </div>
 
-                <div className="mt-3 pt-2 border-t border-[rgba(94,23,235,0.12)]">
+                <div className="mt-3 pt-2">
                   <span className="font-mono text-[9px] text-[#68738D]">
                     {lead.team}
                   </span>
@@ -366,16 +448,15 @@ export function Team() {
           </StaggerGroup>
         </div>
 
-        {/* ════════════════════════ 3. OPERATIONAL SQUADS ════════════════════════ */}
+        {/* ════════════════════════ 4. OPERATIONAL SQUADS (BORDERLESS) ════════════════════════ */}
         <div className="mt-20">
           <Reveal>
-            <div className="mb-8 flex items-center justify-between gap-3 border-b border-[rgba(94,23,235,0.18)] pb-4">
+            <div className="mb-8 flex items-center justify-between gap-3 pb-4">
               <div className="flex items-center gap-3">
                 <span
                   className="grid size-10 place-items-center rounded-xl"
                   style={{
                     background: 'rgba(56, 189, 248, 0.15)',
-                    border: '1px solid rgba(56, 189, 248, 0.35)',
                   }}
                 >
                   <Users className="size-5 text-sky-400" />
@@ -399,10 +480,9 @@ export function Team() {
               return (
                 <Reveal key={squad.squad} y={16} delay={idx * 0.06} className="h-full">
                   <div
-                    className="relative h-full flex flex-col justify-between overflow-hidden rounded-2xl p-6 glass transition-all duration-300 hover:border-[#5e17eb]"
+                    className="relative h-full flex flex-col justify-between overflow-hidden rounded-2xl p-6 transition-all duration-300 hover:-translate-y-1 drop-shadow-[0_0_24px_rgba(94,23,235,0.2)]"
                     style={{
                       background: '#0D1425',
-                      border: '1px solid rgba(94, 23, 235, 0.2)',
                     }}
                   >
                     <div
@@ -416,7 +496,6 @@ export function Team() {
                           className="grid size-9 place-items-center rounded-lg"
                           style={{
                             background: `${squad.color}18`,
-                            border: `1px solid ${squad.color}35`,
                           }}
                         >
                           <Icon className="size-4.5" style={{ color: squad.color }} />
@@ -442,7 +521,6 @@ export function Team() {
                             className="flex items-center gap-1.5 rounded-lg px-2.5 py-1.5"
                             style={{
                               background: '#111A2E',
-                              border: '1px solid rgba(94, 23, 235, 0.16)',
                             }}
                           >
                             <span

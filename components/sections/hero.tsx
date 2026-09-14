@@ -4,6 +4,7 @@ import Image from 'next/image'
 import { motion } from 'motion/react'
 import { Radio, ArrowRight, Users, UsersRound, Trophy } from 'lucide-react'
 import { CyberNetwork } from '@/components/cyber-network'
+import { MatrixRain } from '@/components/matrix-rain'
 import { FlameEffect } from '@/components/flame-effect'
 
 const stats = [
@@ -18,10 +19,13 @@ export function Hero() {
       id="top"
       className="relative flex min-h-screen items-center overflow-hidden bg-mesh pt-24 sm:pt-28 md:pt-32 pb-12 sm:pb-16"
     >
-      <CyberNetwork />
-      <div className="absolute inset-0 grid-lines opacity-80" aria-hidden="true" />
+      {/* Slow-motion 0 & 1 Binary Matrix Rain Background */}
+      <MatrixRain className="pointer-events-none absolute inset-0 h-full w-full z-0 opacity-70" />
+      <div className="z-0 absolute inset-0 grid-lines opacity-40 pointer-events-none" aria-hidden="true" />
+      
+      {/* Bottom fade into next section */}
       <div
-        className="pointer-events-none absolute inset-x-0 bottom-0 h-32 sm:h-40 bg-gradient-to-t from-[#050816] to-transparent"
+        className="pointer-events-none absolute inset-x-0 bottom-0 h-32 sm:h-40 bg-gradient-to-t from-[#050816] to-transparent z-0"
         aria-hidden="true"
       />
 

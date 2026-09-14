@@ -9,18 +9,25 @@ import { StaggerGroup, staggerItem } from '@/components/motion-primitives'
 
 const campusImages = [
   {
-    src: '/niet-campus-aerial.webp',
-    alt: 'NIET Greater Noida — Campus Panorama & Grounds',
-    badge: 'Campus View 01 · Aerial',
+    src: '/niet-campus.webp',
+    alt: 'NIET Greater Noida — Academic Block & Campus Grounds',
+    badge: 'Campus View 01 · Academic Block',
     location: 'Knowledge Park II, Greater Noida',
-    title: 'NIET Institutional Campus & Technology Grounds',
+    title: 'NIET Academic Block & Institutional Grounds',
   },
   {
-    src: '/niet-campus.webp',
-    alt: 'NIET Greater Noida Academic Block & Cyber Labs',
-    badge: 'Campus View 02 · Academic Block',
-    location: 'Academic & Cyber Lab Arena',
-    title: 'Department of Computer Science & Cyber Security Labs',
+    src: '/niet-campus-aerial.webp',
+    alt: 'NIET Greater Noida — Campus Panorama & Sports Grounds',
+    badge: 'Campus View 02 · Campus Panorama',
+    location: 'Main Campus & Technology Arena',
+    title: 'NIET Institutional Campus & Innovation Grounds',
+  },
+  {
+    src: '/niet-campus-drone.webp',
+    alt: 'NIET Greater Noida — Drone Aerial View',
+    badge: 'Campus View 03 · Drone Aerial View',
+    location: 'Department of CSE & Cyber Labs Arena',
+    title: 'NIET Main Complex · Drone Aerial Perspective',
   },
 ]
 

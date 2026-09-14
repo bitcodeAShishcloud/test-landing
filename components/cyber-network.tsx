@@ -2,18 +2,9 @@
 
 import { useEffect, useRef } from 'react'
 
-type Node = {
-  x: number
-  y: number
-  vx: number
-  vy: number
-  r: number
-  pulse: number
-}
-
 /**
- * Restrained technical ambience: very low-density drifting nodes with faint
- * slate lines and a couple of subtle purple markers. No neon blobs.
+ * High-performance, ultra-smooth Slow-Motion Binary Matrix Rain (0 & 1)
+ * Atmospheric background ambient cyber stream designed for Ghost Protocol CTF
  */
 export function CyberNetwork() {
   const canvasRef = useRef<HTMLCanvasElement>(null)
@@ -28,113 +19,157 @@ export function CyberNetwork() {
 
     let width = 0
     let height = 0
-    let dpr = Math.min(window.devicePixelRatio || 1, 2)
-    let nodes: Node[] = []
+    let dpr = Math.min(typeof window !== 'undefined' ? window.devicePixelRatio || 1 : 1, 2)
     let raf = 0
 
-    const glowIndices = new Set<number>()
+    const fontSize = 14
+    const colWidth = 26
+    let columns = 0
 
-    function build() {
+    interface ColumnDrop {
+      x: number
+      y: number
+      speed: number
+      length: number
+      chars: string[]
+      glowColor: string
+      bodyColor: string
+      lastChange: number
+    }
+
+    let drops: ColumnDrop[] = []
+
+    const palette = [
+      // Subtle Cyber Invaders green / cyan / lavender hues
+      {
+        glow: 'rgba(52, 211, 153, 0.85)',
+        body: 'rgba(52, 211, 153, 0.22)',
+      },
+      {
+        glow: 'rgba(167, 139, 250, 0.85)',
+        body: 'rgba(167, 139, 250, 0.20)',
+      },
+      {
+        glow: 'rgba(56, 189, 248, 0.85)',
+        body: 'rgba(56, 189, 248, 0.20)',
+      },
+      {
+        glow: 'rgba(255, 255, 255, 0.95)',
+        body: 'rgba(94, 23, 235, 0.22)',
+      },
+    ]
+
+    function init() {
       width = canvas!.clientWidth
       height = canvas!.clientHeight
       canvas!.width = width * dpr
       canvas!.height = height * dpr
       ctx!.setTransform(dpr, 0, 0, dpr, 0, 0)
 
-      const density = Math.min(32, Math.floor((width * height) / 48000))
-      nodes = Array.from({ length: density }, () => ({
-        x: Math.random() * width,
-        y: Math.random() * height,
-        vx: (Math.random() - 0.5) * 0.16,
-        vy: (Math.random() - 0.5) * 0.16,
-        r: Math.random() * 1.1 + 0.5,
-        pulse: Math.random() * Math.PI * 2,
-      }))
+      columns = Math.floor(width / colWidth)
+      drops = []
 
-      glowIndices.clear()
-      const glowCount = Math.max(2, Math.floor(density / 18))
-      while (glowIndices.size < glowCount) {
-        glowIndices.add(Math.floor(Math.random() * nodes.length))
+      for (let i = 0; i < columns; i++) {
+        const streamLength = Math.floor(Math.random() * 14) + 8
+        const initialChars = Array.from({ length: streamLength }, () =>
+          Math.random() > 0.5 ? '1' : '0'
+        )
+        const theme = palette[i % palette.length]
+
+        drops.push({
+          x: i * colWidth + colWidth / 2,
+          // Stagger starting Y across screen
+          y: Math.random() * (height / fontSize) - (height / fontSize),
+          // Even, slow motion speed (0.12 - 0.22 rows per frame)
+          speed: Math.random() * 0.08 + 0.12,
+          length: streamLength,
+          chars: initialChars,
+          glowColor: theme.glow,
+          bodyColor: theme.body,
+          lastChange: 0,
+        })
       }
     }
 
-    const maxDist = 130
+    let lastTime = performance.now()
 
-    function frame() {
+    function draw(now: number) {
+      const delta = Math.min((now - lastTime) / 1000, 0.1)
+      lastTime = now
+
+      // Clear with subtle trail retention for fluid motion
       ctx!.clearRect(0, 0, width, height)
 
-      for (const n of nodes) {
-        n.x += n.vx
-        n.y += n.vy
-        n.pulse += 0.012
-        if (n.x < 0 || n.x > width) n.vx *= -1
-        if (n.y < 0 || n.y > height) n.vy *= -1
-      }
+      ctx!.font = `600 ${fontSize}px var(--font-jetbrains-mono, monospace)`
+      ctx!.textAlign = 'center'
+      ctx!.textBaseline = 'middle'
 
-      // connections — faint slate, single hue
-      for (let i = 0; i < nodes.length; i++) {
-        for (let j = i + 1; j < nodes.length; j++) {
-          const a = nodes[i]
-          const b = nodes[j]
-          const dx = a.x - b.x
-          const dy = a.y - b.y
-          const dist = Math.hypot(dx, dy)
-          if (dist < maxDist) {
-            const alpha = (1 - dist / maxDist) * 0.08
-            ctx!.strokeStyle = `rgba(94, 23, 235, ${alpha})`
-            ctx!.lineWidth = 0.6
-            ctx!.beginPath()
-            ctx!.moveTo(a.x, a.y)
-            ctx!.lineTo(b.x, b.y)
-            ctx!.stroke()
+      for (let i = 0; i < drops.length; i++) {
+        const drop = drops[i]
+
+        // Advance slow-motion drop
+        drop.y += drop.speed * (delta * 60)
+
+        // Reset drop when completely scrolled past bottom
+        if (drop.y - drop.length > height / fontSize) {
+          drop.y = -(Math.random() * 10 + 2)
+          drop.speed = Math.random() * 0.08 + 0.12
+          drop.length = Math.floor(Math.random() * 14) + 8
+          drop.chars = Array.from({ length: drop.length }, () =>
+            Math.random() > 0.5 ? '1' : '0'
+          )
+        }
+
+        // Random character mutation (flipping 0s and 1s smoothly)
+        if (Math.random() < 0.04) {
+          const randIdx = Math.floor(Math.random() * drop.chars.length)
+          drop.chars[randIdx] = drop.chars[randIdx] === '1' ? '0' : '1'
+        }
+
+        // Render each binary character in the column stream
+        for (let j = 0; j < drop.length; j++) {
+          const charY = (drop.y - j) * fontSize
+          if (charY < -fontSize || charY > height + fontSize) continue
+
+          const isHead = j === 0
+          const char = drop.chars[j] || (Math.random() > 0.5 ? '1' : '0')
+
+          if (isHead) {
+            // Bright, luminous leader character
+            ctx!.fillStyle = drop.glowColor
+            ctx!.shadowColor = drop.glowColor
+            ctx!.shadowBlur = 8
+            ctx!.fillText(char, drop.x, charY)
+            ctx!.shadowBlur = 0
+          } else {
+            // Faint, elegant trailing body characters
+            const fadeProgress = (drop.length - j) / drop.length
+            const alpha = fadeProgress * 0.28
+            ctx!.fillStyle = `rgba(167, 139, 250, ${alpha})`
+            ctx!.fillText(char, drop.x, charY)
           }
         }
       }
 
-      // nodes
-      nodes.forEach((n, i) => {
-        const isGlow = glowIndices.has(i)
-        if (isGlow) {
-          const p = (Math.sin(n.pulse) + 1) / 2
-          const radius = n.r + 1.5 + p * 1.5
-          const g = ctx!.createRadialGradient(n.x, n.y, 0, n.x, n.y, radius * 3)
-          g.addColorStop(0, `rgba(94, 23, 235, ${0.16 + p * 0.1})`)
-          g.addColorStop(1, 'rgba(94, 23, 235, 0)')
-          ctx!.fillStyle = g
-          ctx!.beginPath()
-          ctx!.arc(n.x, n.y, radius * 3, 0, Math.PI * 2)
-          ctx!.fill()
-
-          ctx!.fillStyle = `rgba(167, 139, 250, ${0.7 + p * 0.15})`
-          ctx!.beginPath()
-          ctx!.arc(n.x, n.y, n.r + 0.4, 0, Math.PI * 2)
-          ctx!.fill()
-        } else {
-          ctx!.fillStyle = 'rgba(168, 177, 199, 0.28)'
-          ctx!.beginPath()
-          ctx!.arc(n.x, n.y, n.r, 0, Math.PI * 2)
-          ctx!.fill()
-        }
-      })
-
-      raf = requestAnimationFrame(frame)
+      raf = requestAnimationFrame(draw)
     }
 
-    build()
+    init()
+
     if (reduce) {
-      frame()
+      draw(performance.now())
       cancelAnimationFrame(raf)
     } else {
-      frame()
+      raf = requestAnimationFrame(draw)
     }
 
     let resizeTimer: ReturnType<typeof setTimeout>
     const onResize = () => {
       clearTimeout(resizeTimer)
       resizeTimer = setTimeout(() => {
-        dpr = Math.min(window.devicePixelRatio || 1, 2)
-        build()
-      }, 200)
+        dpr = Math.min(typeof window !== 'undefined' ? window.devicePixelRatio || 1 : 1, 2)
+        init()
+      }, 150)
     }
     window.addEventListener('resize', onResize)
 
@@ -149,7 +184,7 @@ export function CyberNetwork() {
     <canvas
       ref={canvasRef}
       aria-hidden="true"
-      className="pointer-events-none absolute inset-0 h-full w-full"
+      className="pointer-events-none absolute inset-0 h-full w-full opacity-65 select-none"
     />
   )
 }
