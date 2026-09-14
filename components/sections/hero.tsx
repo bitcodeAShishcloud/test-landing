@@ -4,6 +4,7 @@ import { motion } from 'motion/react'
 import { Radio, ArrowRight, Users, UsersRound, Trophy } from 'lucide-react'
 import { CyberNetwork } from '@/components/cyber-network'
 import { TerminalCard } from '@/components/terminal-card'
+import { FlameEffect } from '@/components/flame-effect'
 
 const stats = [
   { icon: Users, value: '200', label: 'Teams' },
@@ -52,7 +53,13 @@ export function Hero() {
             style={{ color: '#F8FAFC' }}
           >
             GHOST PROTOCOL
-            <span className="text-gradient mt-1 block">CTF 2.0</span>
+            <span className="relative mt-2 inline-block">
+              {/* Animated realistic burning flame rising from underneath */}
+              <FlameEffect />
+              <span className="text-gradient relative z-10 block tracking-wide">
+                CTF 2.0
+              </span>
+            </span>
           </motion.h1>
 
           <motion.p

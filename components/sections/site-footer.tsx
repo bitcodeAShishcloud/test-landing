@@ -1,31 +1,34 @@
 'use client'
 
+import Image from 'next/image'
 import { Shield, AtSign, Globe, Mail, Send, Share2 } from 'lucide-react'
+import { siteLinks } from '@/lib/links'
 
 const socials = [
-  { icon: AtSign, label: 'Instagram', href: '#' },
-  { icon: Send, label: 'WhatsApp Channel', href: '#' },
-  { icon: Share2, label: 'Share', href: '#' },
-  { icon: Globe, label: 'Club Website', href: '#' },
+  { icon: AtSign, label: 'Instagram', href: siteLinks.instagram },
+  { icon: Send, label: 'WhatsApp Channel', href: siteLinks.whatsappChannel },
+  { icon: Globe, label: 'Club Official Portal', href: siteLinks.clubWebsite },
+  { image: '/niet-crest.webp', label: 'NIET Official Website', href: siteLinks.nietWebsite },
 ]
 
 const columns = [
   {
     title: 'Event',
     links: [
-      { label: 'Overview', href: '#overview' },
-      { label: 'Structure', href: '#structure' },
-      { label: 'Categories', href: '#categories' },
-      { label: 'Participant Journey', href: '#journey' },
+      { label: 'Overview', href: siteLinks.nav.overview },
+      { label: 'Timeline & Structure', href: siteLinks.nav.timeline },
+      { label: 'Categories', href: siteLinks.nav.categories },
     ],
   },
   {
     title: 'Community',
     links: [
-      { label: 'Cyber Invaders', href: '#club' },
-      { label: 'NIET Greater Noida', href: '#' },
-      { label: 'Club Website', href: '#' },
-      { label: 'Announcement Channel', href: '#announcement' },
+      { label: 'About Cyber Invaders', href: siteLinks.nav.about },
+      { label: 'Club Official Website ↗', href: siteLinks.clubWebsite },
+      { label: 'Sponsors', href: siteLinks.nav.sponsors },
+      { label: 'Organizing Team', href: siteLinks.nav.team },
+      { label: "FAQ's", href: siteLinks.nav.faq },
+      { label: 'Contact Support', href: siteLinks.nav.contact },
     ],
   },
 ]
@@ -42,16 +45,24 @@ export function SiteFooter() {
       <div className="mx-auto max-w-6xl px-4 py-14">
         <div className="grid gap-10 md:grid-cols-[1.4fr_1fr_1fr] md:gap-8">
           <div>
-            <div className="flex items-center gap-2.5">
-              <span
-                className="grid size-9 place-items-center rounded-md"
-                style={{
-                  border: '1px solid rgba(94, 23, 235, 0.55)',
-                  background: 'rgba(94, 23, 235, 0.12)',
-                }}
-              >
-                <Shield className="size-5 text-white" strokeWidth={2.2} />
-              </span>
+            <div className="flex items-center gap-3">
+              <div className="flex items-center gap-2 py-0.5">
+                <Image
+                  src="/niet-full-logo.webp"
+                  alt="NIET Greater Noida"
+                  width={120}
+                  height={40}
+                  className="h-7 w-auto object-contain"
+                />
+                <span className="font-mono text-xs font-bold text-[#a78bfa]">×</span>
+                <Image
+                  src="/cyber-invaders-full-logo.webp"
+                  alt="Cyber Invaders"
+                  width={110}
+                  height={40}
+                  className="h-7 w-auto object-contain"
+                />
+              </div>
               <span
                 className="font-display text-base font-bold leading-tight"
                 style={{ color: '#F8FAFC' }}
@@ -71,11 +82,23 @@ export function SiteFooter() {
                 <a
                   key={s.label}
                   href={s.href}
+                  target={s.href.startsWith('http') ? '_blank' : undefined}
+                  rel={s.href.startsWith('http') ? 'noopener noreferrer' : undefined}
                   aria-label={s.label}
-                  className="grid size-9 place-items-center rounded-md glass transition-colors hover:bg-[#111A2E]"
+                  className="grid size-9 place-items-center rounded-md glass transition-colors hover:bg-[#111A2E] p-1.5"
                   style={{ color: '#9ca3af' }}
                 >
-                  <s.icon className="size-4" />
+                  {s.image ? (
+                    <Image
+                      src={s.image}
+                      alt={s.label}
+                      width={20}
+                      height={20}
+                      className="size-4.5 object-contain"
+                    />
+                  ) : s.icon ? (
+                    <s.icon className="size-4" />
+                  ) : null}
                 </a>
               ))}
             </div>
@@ -108,11 +131,11 @@ export function SiteFooter() {
             rights reserved.
           </p>
           <a
-            href="mailto:cyberinvaders@niet.co.in"
+            href={siteLinks.mailto}
             className="inline-flex items-center gap-2 text-xs text-muted-foreground transition-colors hover:text-foreground"
           >
             <Mail className="size-3.5" />
-            cyberinvaders@niet.co.in
+            {siteLinks.email}
           </a>
         </div>
       </div>

@@ -1,9 +1,11 @@
 'use client'
 
 import Image from 'next/image'
+import { Globe, ExternalLink } from 'lucide-react'
 import { SectionHeading } from '@/components/section-heading'
 import { Reveal } from '@/components/motion-primitives'
 import { CountUp } from '@/components/count-up'
+import { siteLinks } from '@/lib/links'
 
 const stats = [
   { value: 40, suffix: '+', label: 'Hands-on workshops' },
@@ -28,16 +30,16 @@ export function Club() {
           <Reveal>
             <div className="relative mx-auto w-full max-w-sm">
               <div
-                className="relative overflow-hidden rounded-xl glass-strong p-8"
+                className="relative overflow-hidden rounded-xl glass-strong p-6 md:p-8"
                 style={{ background: '#0D1425' }}
               >
                 <div className="absolute inset-0 grid-lines opacity-50" aria-hidden="true" />
                 <Image
-                  src="/cyber-invaders-logo.png"
+                  src="/cyber-invaders-logo.webp"
                   alt="Cyber Invaders club logo"
-                  width={420}
-                  height={420}
-                  className="relative mx-auto w-full max-w-[280px]"
+                  width={500}
+                  height={500}
+                  className="relative mx-auto w-full max-w-[320px] drop-shadow-[0_0_28px_rgba(167,139,250,0.35)]"
                   priority={false}
                 />
               </div>
@@ -69,6 +71,22 @@ export function Club() {
                   <div className="mt-1 text-sm" style={{ color: '#68738D' }}>{s.label}</div>
                 </Reveal>
               ))}
+            </div>
+
+            <div className="mt-6">
+              <Reveal delay={0.1}>
+                <a
+                  href={siteLinks.clubWebsite}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 rounded-lg px-4 py-2.5 text-xs font-semibold text-white transition-colors hover:bg-[#4a10c4]"
+                  style={{ background: '#5e17eb' }}
+                >
+                  <Globe className="size-3.5" />
+                  <span>Visit cyberinvaders.tech</span>
+                  <ExternalLink className="size-3" />
+                </a>
+              </Reveal>
             </div>
           </div>
         </div>

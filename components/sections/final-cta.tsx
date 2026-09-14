@@ -2,6 +2,7 @@
 
 import { Radio, ArrowRight } from 'lucide-react'
 import { Reveal } from '@/components/motion-primitives'
+import { siteLinks } from '@/lib/links'
 
 export function FinalCta() {
   return (
@@ -47,7 +48,9 @@ export function FinalCta() {
         <Reveal delay={0.12}>
           <div className="mt-10 flex flex-col items-center justify-center gap-3 sm:flex-row">
             <a
-              href="#"
+              href={siteLinks.instagram}
+              target="_blank"
+              rel="noopener noreferrer"
               className="group inline-flex w-full items-center justify-center gap-2 rounded-md px-7 py-4 font-semibold text-white transition-colors hover:bg-[#4a10c4] sm:w-auto"
               style={{
                 background: '#5e17eb',

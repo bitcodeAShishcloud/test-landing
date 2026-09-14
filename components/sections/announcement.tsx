@@ -3,6 +3,7 @@
 import { motion } from 'motion/react'
 import { Radio, Bell } from 'lucide-react'
 import { Reveal } from '@/components/motion-primitives'
+import { siteLinks } from '@/lib/links'
 
 export function Announcement() {
   return (
@@ -50,7 +51,9 @@ export function Announcement() {
           </Reveal>
           <Reveal delay={0.15}>
             <motion.a
-              href="#"
+              href={siteLinks.instagram}
+              target="_blank"
+              rel="noopener noreferrer"
               whileHover={{ scale: 1.02 }}
               whileTap={{ scale: 0.98 }}
               className="relative mt-8 inline-flex items-center gap-2.5 rounded-md px-8 py-4 text-lg font-semibold text-white transition-colors hover:bg-[#4a10c4]"

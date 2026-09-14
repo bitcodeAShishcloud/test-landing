@@ -6,7 +6,10 @@ import { Categories } from '@/components/sections/categories'
 import { Club } from '@/components/sections/club'
 import { Institution } from '@/components/sections/institution'
 import { Metrics } from '@/components/sections/metrics'
-import { Journey } from '@/components/sections/journey'
+import { Sponsors } from '@/components/sections/sponsors'
+import { Team } from '@/components/sections/team'
+import { Faq } from '@/components/sections/faq'
+import { Contact } from '@/components/sections/contact'
 import { Announcement } from '@/components/sections/announcement'
 import { FinalCta } from '@/components/sections/final-cta'
 import { SiteFooter } from '@/components/sections/site-footer'
@@ -22,7 +25,10 @@ export default function Page() {
       <Club />
       <Institution />
       <Metrics />
-      <Journey />
+      <Sponsors />
+      <Team />
+      <Faq />
+      <Contact />
       <Announcement />
       <FinalCta />
       <SiteFooter />
