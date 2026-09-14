@@ -1,9 +1,9 @@
 'use client'
 
+import Image from 'next/image'
 import { motion } from 'motion/react'
 import { Radio, ArrowRight, Users, UsersRound, Trophy } from 'lucide-react'
 import { CyberNetwork } from '@/components/cyber-network'
-import { TerminalCard } from '@/components/terminal-card'
 import { FlameEffect } from '@/components/flame-effect'
 
 const stats = [
@@ -149,12 +149,21 @@ export function Hero() {
         </div>
 
         <motion.div
-          initial={{ opacity: 0, x: 40 }}
-          animate={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.9, delay: 0.4, ease: [0.22, 1, 0.36, 1] }}
-          className="mx-auto w-full max-w-md"
+          initial={{ opacity: 0, x: 40, scale: 0.96 }}
+          animate={{ opacity: 1, x: 0, scale: 1 }}
+          transition={{ duration: 0.9, delay: 0.35, ease: [0.22, 1, 0.36, 1] }}
+          className="mx-auto w-full max-w-lg"
         >
-          <TerminalCard />
+          <div className="relative overflow-hidden rounded-2xl drop-shadow-[0_0_35px_rgba(94,23,235,0.35)]">
+            <Image
+              src="/hero-banner.webp"
+              alt="NIET Presents Cyber Invaders Capture The Flag"
+              width={1200}
+              height={498}
+              className="w-full h-auto object-cover rounded-2xl transition-transform duration-500 hover:scale-[1.02]"
+              priority
+            />
+          </div>
         </motion.div>
       </div>
     </section>
