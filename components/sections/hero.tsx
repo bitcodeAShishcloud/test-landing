@@ -3,7 +3,6 @@
 import Image from 'next/image'
 import { motion } from 'motion/react'
 import { Radio, ArrowRight, Users, UsersRound, Trophy } from 'lucide-react'
-import { CyberNetwork } from '@/components/cyber-network'
 import { MatrixRain } from '@/components/matrix-rain'
 import { FlameEffect } from '@/components/flame-effect'
 
