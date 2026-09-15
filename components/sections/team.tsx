@@ -23,18 +23,42 @@ import {
 import { SectionHeading } from '@/components/section-heading'
 import { Reveal, StaggerGroup, staggerItem } from '@/components/motion-primitives'
 
-/* ─── Director / Chief Patron ────────────────────────────────────────────── */
-const chiefPatron = {
-  name: 'Dr. Vinod M. Kapse',
-  designation: 'Director, NIET Greater Noida',
-  role: 'Patron-in-Chief & Institutional Director',
-  quote:
-    'At NIET, we champion practical, hands-on innovation over theoretical learning. Ghost Protocol CTF 2.0 embodies our mission to cultivate elite cyber talent, ethical hackers, and defensive strategists capable of securing our nation’s critical digital frontiers.',
-  dept: 'Noida Institute of Engineering and Technology (NIET)',
-  tag: 'PATRON-IN-CHIEF',
-  image: '/director-niet.webp',
-  color: '#5e17eb',
-}
+/* ─── Institutional Leadership & Chief Patrons Data ──────────────────────── */
+const leadershipPatrons = [
+  {
+    name: 'Dr. Om Prakash Agarwal',
+    designation: 'Managing Director, NIET Greater Noida',
+    role: 'Chief Patron & Managing Director',
+    quote:
+      'Success is not a one-shot process. It is the result of continuous improvement after each challenge. At NIET, we empower students to lead with resilience, technical mastery and ethical innovation on the national cybersecurity stage.',
+    dept: 'Noida Institute of Engineering & Technology (NIET)',
+    tag: 'CHIEF PATRON',
+    image: '/dr-op-agarwal.webp',
+    color: '#e83e8c',
+  },
+  {
+    name: 'Dr. Neema Agarwal',
+    designation: 'Additional Managing Director, NIET Greater Noida',
+    role: 'Patron & Additional Managing Director',
+    quote:
+      'Education is the most powerful weapon which you can use to change the world. At NIET, we bring leading-edge technical education and hands-on platforms like Ghost Protocol CTF to groom confident cyber leaders for real-world operations.',
+    dept: 'Noida Institute of Engineering & Technology (NIET)',
+    tag: 'ADDL. MANAGING DIRECTOR',
+    image: '/dr-neema-agarwal.webp',
+    color: '#38bdf8',
+  },
+  {
+    name: 'Dr. Vinod M. Kapse',
+    designation: 'Director, NIET Greater Noida',
+    role: 'Patron-in-Chief & Institutional Director',
+    quote:
+      'At NIET, we champion practical, hands-on innovation over theoretical learning. Ghost Protocol CTF 2.0 embodies our mission to cultivate elite cyber talent, ethical hackers, and defensive strategists capable of securing our nation’s critical digital frontiers.',
+    dept: 'Noida Institute of Engineering and Technology (NIET)',
+    tag: 'PATRON-IN-CHIEF',
+    image: '/director-niet.webp',
+    color: '#5e17eb',
+  },
+]
 
 /* ─── Faculty Guides & Advisory Mentors Data ──────────────────────────────── */
 const mentors = [
@@ -172,94 +196,102 @@ export function Team() {
           description="Ghost Protocol CTF 2.0 is staged under the institutional leadership of NIET Greater Noida and driven by the cybersecurity students of Cyber Invaders."
         />
 
-        {/* ════════════════════════ 1. DIRECTOR / CHIEF PATRON SPOTLIGHT (BORDERLESS) ════════════════════════ */}
-        <div className="mt-16">
-          <Reveal y={20}>
-            <div
-              className="relative overflow-hidden rounded-3xl p-6 sm:p-8 md:p-10 transition-all duration-300 drop-shadow-[0_0_40px_rgba(94,23,235,0.25)]"
-              style={{
-                background: 'linear-gradient(135deg, #0D1425 0%, #090E1C 100%)',
-              }}
-            >
-              {/* Top Cyber Laser Accent Line */}
+        {/* ════════════════════════ 1. INSTITUTIONAL LEADERSHIP & PATRONS SPOTLIGHT (BORDERLESS) ════════════════════════ */}
+        <div className="mt-16 space-y-8">
+          {leadershipPatrons.map((patron, idx) => (
+            <Reveal key={patron.name} y={20} delay={idx * 0.08}>
               <div
-                className="absolute inset-x-0 top-0 h-1"
+                className="relative overflow-hidden rounded-3xl p-6 sm:p-8 md:p-10 transition-all duration-300 drop-shadow-[0_0_40px_rgba(94,23,235,0.25)]"
                 style={{
-                  background: 'linear-gradient(90deg, #5e17eb 0%, #a78bfa 50%, #e83e8c 100%)',
+                  background: 'linear-gradient(135deg, #0D1425 0%, #090E1C 100%)',
                 }}
-              />
+              >
+                {/* Top Cyber Laser Accent Line */}
+                <div
+                  className="absolute inset-x-0 top-0 h-1"
+                  style={{
+                    background:
+                      idx === 0
+                        ? 'linear-gradient(90deg, #e83e8c 0%, #ff5500 50%, #5e17eb 100%)'
+                        : 'linear-gradient(90deg, #5e17eb 0%, #a78bfa 50%, #e83e8c 100%)',
+                  }}
+                />
 
-              <div className="grid gap-8 lg:grid-cols-[300px_1fr] items-center">
-                {/* Director Photo Frame (100% Borderless) */}
-                <div className="flex justify-center">
-                  <div className="relative w-56 sm:w-64 aspect-[4/5] overflow-hidden rounded-2xl drop-shadow-[0_0_35px_rgba(94,23,235,0.35)] transition-transform duration-300 hover:scale-[1.02]">
-                    <Image
-                      src={chiefPatron.image}
-                      alt={`${chiefPatron.name} - ${chiefPatron.designation}`}
-                      fill
-                      className="object-cover object-top rounded-2xl"
-                      priority
-                    />
-                    <div
-                      className="absolute inset-0 bg-gradient-to-t from-[#050816] via-transparent to-transparent opacity-50 pointer-events-none rounded-2xl"
-                      aria-hidden="true"
-                    />
-                  </div>
-                </div>
-
-                {/* Director Info & Vision Message */}
-                <div className="flex flex-col justify-between h-full">
-                  <div>
-                    <div className="flex flex-wrap items-center gap-2.5 mb-3">
-                      <span
-                        className="rounded-full px-3 py-1 font-mono text-[10px] sm:text-xs font-semibold uppercase tracking-wider text-white"
-                        style={{
-                          background: 'linear-gradient(90deg, #5e17eb, #7c3aed)',
-                          boxShadow: '0 0 14px rgba(94, 23, 235, 0.4)',
-                        }}
-                      >
-                        {chiefPatron.tag}
-                      </span>
-                      <span className="font-mono text-xs text-[#a78bfa]">
-                        NIET Leadership
-                      </span>
+                <div className="grid gap-8 lg:grid-cols-[300px_1fr] items-center">
+                  {/* Patron Photo Frame (100% Borderless) */}
+                  <div className="flex justify-center">
+                    <div className="relative w-56 sm:w-64 aspect-[4/5] overflow-hidden rounded-2xl drop-shadow-[0_0_35px_rgba(94,23,235,0.35)] transition-transform duration-300 hover:scale-[1.02]">
+                      <Image
+                        src={patron.image}
+                        alt={`${patron.name} - ${patron.designation}`}
+                        fill
+                        className="object-cover object-top rounded-2xl"
+                        priority={idx === 0}
+                      />
+                      <div
+                        className="absolute inset-0 bg-gradient-to-t from-[#050816] via-transparent to-transparent opacity-50 pointer-events-none rounded-2xl"
+                        aria-hidden="true"
+                      />
                     </div>
+                  </div>
 
-                    <h3 className="font-display text-2xl sm:text-3xl md:text-4xl font-bold text-white leading-tight">
-                      {chiefPatron.name}
-                    </h3>
-                    <p className="mt-1 font-display text-sm sm:text-base font-semibold text-[#a78bfa]">
-                      {chiefPatron.designation}
-                    </p>
-                    <p className="mt-0.5 text-xs text-[#68738D] font-mono">
-                      {chiefPatron.dept}
-                    </p>
+                  {/* Patron Info & Vision Message */}
+                  <div className="flex flex-col justify-between h-full">
+                    <div>
+                      <div className="flex flex-wrap items-center gap-2.5 mb-3">
+                        <span
+                          className="rounded-full px-3 py-1 font-mono text-[10px] sm:text-xs font-semibold uppercase tracking-wider text-white"
+                          style={{
+                            background:
+                              idx === 0
+                                ? 'linear-gradient(90deg, #e83e8c, #ff5500)'
+                                : 'linear-gradient(90deg, #5e17eb, #7c3aed)',
+                            boxShadow: `0 0 14px ${patron.color}66`,
+                          }}
+                        >
+                          {patron.tag}
+                        </span>
+                        <span className="font-mono text-xs text-[#a78bfa]">
+                          NIET Leadership
+                        </span>
+                      </div>
 
-                    <div
-                      className="my-5 h-px w-full"
-                      style={{ background: 'rgba(94, 23, 235, 0.12)' }}
-                    />
-
-                    {/* Vision Quote Box (Borderless) */}
-                    <div className="relative rounded-2xl p-4 sm:p-5 bg-[#111A2E]/60">
-                      <Quote className="size-6 text-[#a78bfa]/40 mb-2" />
-                      <p className="text-xs sm:text-sm leading-relaxed text-[#CBD5E1] italic">
-                        &ldquo;{chiefPatron.quote}&rdquo;
+                      <h3 className="font-display text-2xl sm:text-3xl md:text-4xl font-bold text-white leading-tight">
+                        {patron.name}
+                      </h3>
+                      <p className="mt-1 font-display text-sm sm:text-base font-semibold text-[#a78bfa]">
+                        {patron.designation}
                       </p>
-                    </div>
-                  </div>
+                      <p className="mt-0.5 text-xs text-[#68738D] font-mono">
+                        {patron.dept}
+                      </p>
 
-                  <div className="mt-6 pt-4 flex flex-wrap items-center justify-between gap-3 text-xs font-mono text-[#68738D]">
-                    <span className="flex items-center gap-1.5 text-[#CBD5E1]">
-                      <Building2 className="size-3.5 text-[#5e17eb]" />
-                      Noida Institute of Engineering and Technology
-                    </span>
-                    <span className="text-[#a78bfa]">Greater Noida, Uttar Pradesh</span>
+                      <div
+                        className="my-5 h-px w-full"
+                        style={{ background: 'rgba(94, 23, 235, 0.12)' }}
+                      />
+
+                      {/* Vision Quote Box (Borderless) */}
+                      <div className="relative rounded-2xl p-4 sm:p-5 bg-[#111A2E]/60">
+                        <Quote className="size-6 text-[#a78bfa]/40 mb-2" />
+                        <p className="text-xs sm:text-sm leading-relaxed text-[#CBD5E1] italic">
+                          &ldquo;{patron.quote}&rdquo;
+                        </p>
+                      </div>
+                    </div>
+
+                    <div className="mt-6 pt-4 flex flex-wrap items-center justify-between gap-3 text-xs font-mono text-[#68738D]">
+                      <span className="flex items-center gap-1.5 text-[#CBD5E1]">
+                        <Building2 className="size-3.5 text-[#5e17eb]" />
+                        Noida Institute of Engineering and Technology
+                      </span>
+                      <span className="text-[#a78bfa]">Greater Noida, Uttar Pradesh</span>
+                    </div>
                   </div>
                 </div>
               </div>
-            </div>
-          </Reveal>
+            </Reveal>
+          ))}
         </div>
 
         {/* ════════════════════════ 2. FACULTY GUIDES & ADVISORY MENTORS (BORDERLESS) ════════════════════════ */}
