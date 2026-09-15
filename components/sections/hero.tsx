@@ -1,6 +1,7 @@
 'use client'
 
 import Image from 'next/image'
+import { useState, useEffect } from 'react'
 import { motion } from 'motion/react'
 import { Radio, ArrowRight, Users, UsersRound, Trophy } from 'lucide-react'
 import { FlameEffect } from '@/components/flame-effect'
@@ -12,7 +13,24 @@ const stats = [
   { icon: Trophy, value: '₹24,000+', label: 'Prize Pool' },
 ]
 
+const swipeImages = [
+  { src: '/hero-swipe-1.webp', alt: 'Cyber Invaders event — classroom wide shot' },
+  { src: '/hero-swipe-2.webp', alt: 'Cyber Invaders event — students and mentor' },
+  { src: '/hero-swipe-3.webp', alt: 'Cyber Invaders event — team at workstation' },
+  { src: '/hero-swipe-4.webp', alt: 'Cyber Invaders event — workshop overview' },
+  { src: '/hero-swipe-5.webp', alt: 'Cyber Invaders event — hackers in action' },
+]
+
 export function Hero() {
+  const [activeIdx, setActiveIdx] = useState(0)
+
+  useEffect(() => {
+    if (swipeImages.length === 0) return
+    const interval = setInterval(() => {
+      setActiveIdx((prev) => (prev + 1) % swipeImages.length)
+    }, 4000)
+    return () => clearInterval(interval)
+  }, [])
   return (
     <section
       id="top"
@@ -156,6 +174,43 @@ export function Hero() {
               className="w-full h-auto object-cover rounded-2xl transition-transform duration-500 hover:scale-[1.02]"
               priority
             />
+          </div>
+
+          {/* Auto-swap carousel (fixed-height frame, crossfade) */}
+          <div className="relative mt-4 h-44 sm:h-52 overflow-hidden rounded-2xl drop-shadow-[0_0_24px_rgba(94,23,235,0.25)]">
+            {swipeImages.map((img, i) => (
+              <div
+                key={img.src}
+                className={`absolute inset-0 transition-opacity duration-1000 ease-in-out ${
+                  i === activeIdx ? 'opacity-100 z-10' : 'opacity-0 z-0'
+                }`}
+              >
+                <Image
+                  src={img.src}
+                  alt={img.alt}
+                  fill
+                  sizes="(max-width: 640px) 100vw, 500px"
+                  className="h-full w-full object-cover"
+                />
+              </div>
+            ))}
+
+            {/* Progress dots */}
+            <div className="absolute bottom-2 inset-x-0 flex items-center justify-center gap-1.5 z-20">
+              {swipeImages.map((_, i) => (
+                <button
+                  key={i}
+                  onClick={() => setActiveIdx(i)}
+                  aria-label={`Show image ${i + 1}`}
+                  className="h-1.5 rounded-full transition-all duration-300"
+                  style={{
+                    width: i === activeIdx ? '20px' : '6px',
+                    background:
+                      i === activeIdx ? '#5e17eb' : 'rgba(167, 139, 250, 0.4)',
+                  }}
+                />
+              ))}
+            </div>
           </div>
         </motion.div>
       </div>
