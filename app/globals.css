@@ -169,6 +169,98 @@
   transform: rotateY(180deg);
 }
 
+/* ── Cyber Glitch & Chromatic Aberration ── */
+.cyber-glitch-container {
+  position: relative;
+  display: inline-block;
+  cursor: pointer;
+  user-select: none;
+}
+
+.cyber-glitch-active .glitch-layer-cyan {
+  opacity: 0.85;
+  animation: glitch-anim-cyan 0.55s cubic-bezier(0.25, 0.46, 0.45, 0.94) infinite;
+}
+
+.cyber-glitch-active .glitch-layer-red {
+  opacity: 0.85;
+  animation: glitch-anim-red 0.55s cubic-bezier(0.25, 0.46, 0.45, 0.94) infinite;
+}
+
+.cyber-glitch-active .glitch-scanline {
+  opacity: 0.8;
+  animation: glitch-scanline 0.6s linear infinite;
+}
+
+@keyframes glitch-anim-cyan {
+  0% {
+    clip-path: inset(40% 0 61% 0);
+    transform: translate3d(-3px, -1px, 0);
+  }
+  20% {
+    clip-path: inset(92% 0 1% 0);
+    transform: translate3d(2px, 1px, 0);
+  }
+  40% {
+    clip-path: inset(10% 0 80% 0);
+    transform: translate3d(-3px, 0, 0);
+  }
+  60% {
+    clip-path: inset(65% 0 20% 0);
+    transform: translate3d(3px, -1px, 0);
+  }
+  80% {
+    clip-path: inset(25% 0 58% 0);
+    transform: translate3d(-2px, 2px, 0);
+  }
+  100% {
+    clip-path: inset(50% 0 30% 0);
+    transform: translate3d(1px, -1px, 0);
+  }
+}
+
+@keyframes glitch-anim-red {
+  0% {
+    clip-path: inset(25% 0 58% 0);
+    transform: translate3d(3px, 1px, 0);
+  }
+  20% {
+    clip-path: inset(70% 0 15% 0);
+    transform: translate3d(-2px, -1px, 0);
+  }
+  40% {
+    clip-path: inset(30% 0 45% 0);
+    transform: translate3d(2px, 2px, 0);
+  }
+  60% {
+    clip-path: inset(15% 0 65% 0);
+    transform: translate3d(-3px, 1px, 0);
+  }
+  80% {
+    clip-path: inset(80% 0 5% 0);
+    transform: translate3d(1px, -2px, 0);
+  }
+  100% {
+    clip-path: inset(45% 0 40% 0);
+    transform: translate3d(-2px, 0, 0);
+  }
+}
+
+@keyframes glitch-scanline {
+  0% {
+    top: 0%;
+    opacity: 0.9;
+  }
+  50% {
+    top: 70%;
+    opacity: 1;
+  }
+  100% {
+    top: 100%;
+    opacity: 0.3;
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after {
     animation-duration: 0.001ms !important;

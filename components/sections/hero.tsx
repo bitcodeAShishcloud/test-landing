@@ -5,6 +5,7 @@ import { motion } from 'motion/react'
 import { Radio, ArrowRight, Users, UsersRound, Trophy } from 'lucide-react'
 import { MatrixRain } from '@/components/matrix-rain'
 import { FlameEffect } from '@/components/flame-effect'
+import { GlitchText } from '@/components/glitch-text'
 
 const stats = [
   { icon: Users, value: '500+', label: 'Expected Teams' },
@@ -55,7 +56,7 @@ export function Hero() {
             className="mt-4 sm:mt-6 text-balance font-display text-4xl sm:text-6xl md:text-7xl font-bold leading-[1.02] sm:leading-[0.95] tracking-tight"
             style={{ color: '#F8FAFC' }}
           >
-            GHOST PROTOCOL
+            <GlitchText />
             <span className="relative mt-2 inline-block">
               {/* Animated realistic burning flame rising from underneath */}
               <FlameEffect />
