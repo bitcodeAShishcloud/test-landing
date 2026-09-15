@@ -4,6 +4,7 @@ import Image from 'next/image'
 import { motion } from 'motion/react'
 import { Radio, ArrowRight, Users, UsersRound, Trophy } from 'lucide-react'
 import { MatrixRain } from '@/components/matrix-rain'
+import { HeroLogoSvg } from '@/components/hero-logo-svg'
 import { FlameEffect } from '@/components/flame-effect'
 import { GlitchText } from '@/components/glitch-text'
 
@@ -22,7 +23,14 @@ export function Hero() {
       {/* Slow-motion 0 & 1 Binary Matrix Rain Background */}
       <MatrixRain className="pointer-events-none absolute inset-0 h-full w-full z-0 opacity-70" />
       <div className="z-0 absolute inset-0 grid-lines opacity-40 pointer-events-none" aria-hidden="true" />
-      
+
+      {/* SVG GHOST PROTOCOL CTF watermark — light vector, no image asset */}
+      <HeroLogoSvg
+        className="z-0 opacity-20 sm:opacity-25"
+        opacity={0.22}
+        blurPx={3}
+      />
+
       {/* Bottom fade into next section */}
       <div
         className="pointer-events-none absolute inset-x-0 bottom-0 h-32 sm:h-40 bg-gradient-to-t from-[#050816] to-transparent z-0"
