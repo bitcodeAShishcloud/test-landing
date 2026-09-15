@@ -59,7 +59,7 @@ const mentors = [
   {
     name: 'Dr. Vikas Sagar',
     role: 'Deputy Head & Faculty Advisor',
-    dept: 'Dept. of CSE / Cryptography & Security, NIET',
+    dept: 'Dept. of CSE (Cyber Security), NIET',
     institute: 'NIET Greater Noida',
     tag: 'DY. HEAD & ADVISOR',
     color: '#e83e8c',
@@ -83,7 +83,7 @@ const coreLeads = [
     team: 'Faculty Council',
     tag: 'FACULTY',
     color: '#7c3aed',
-    image: null,
+    image: '/deepika-singh.webp',
   },
   {
     name: 'Ashish Gupta',
@@ -91,7 +91,7 @@ const coreLeads = [
     team: 'Cyber Invaders Club',
     tag: 'TECH HEAD',
     color: '#38bdf8',
-    image: null,
+    image: '/ashish-gupta.webp',
   },
   {
     name: 'Ananya Paliwal',
@@ -99,7 +99,7 @@ const coreLeads = [
     team: 'Cyber Invaders Club',
     tag: 'PRESIDENT',
     color: '#e83e8c',
-    image: null,
+    image: '/ananya-paliwal.webp',
   },
   {
     name: 'Sudhanshu Raj',
@@ -107,7 +107,7 @@ const coreLeads = [
     team: 'Cyber Invaders Club',
     tag: 'VICE PRESIDENT',
     color: '#f97316',
-    image: null,
+    image: '/sudhanshu-raj.webp',
   },
   {
     name: 'Aditya Kumar Singh',
@@ -115,7 +115,7 @@ const coreLeads = [
     team: 'Cyber Invaders Club',
     tag: 'VICE PRESIDENT',
     color: '#22c55e',
-    image: null,
+    image: '/aditya-kumar-singh.webp',
   },
 ]
 
@@ -404,17 +404,22 @@ export function Team() {
                 <div>
                   {/* Photo Slot (100% Borderless) */}
                   <div className="mx-auto mb-3 flex justify-center">
-                    <div className="relative size-16 sm:size-20 overflow-hidden rounded-xl drop-shadow-[0_0_14px_rgba(94,23,235,0.3)] transition-transform duration-300 group-hover:scale-105">
-                      <div className="relative h-full w-full overflow-hidden rounded-xl bg-[#111A2E] flex items-center justify-center">
+                    <div className="relative size-20 sm:size-24 overflow-hidden rounded-2xl drop-shadow-[0_0_16px_rgba(94,23,235,0.3)] transition-transform duration-300 group-hover:scale-105">
+                      <div className="relative h-full w-full overflow-hidden rounded-2xl bg-[#111A2E] flex items-center justify-center">
                         {lead.image ? (
                           <Image
                             src={lead.image}
                             alt={lead.name}
                             fill
-                            className="object-cover rounded-xl"
+                            className="object-cover object-top rounded-2xl"
                           />
                         ) : (
-                          <Shield className="size-6 text-[#a78bfa]" />
+                          <div className="flex flex-col items-center justify-center gap-1">
+                            <Shield className="size-6 text-[#a78bfa]" />
+                            <span className="font-mono text-[7px] uppercase tracking-wider text-[#68738D]">
+                              Faculty
+                            </span>
+                          </div>
                         )}
                       </div>
                     </div>
