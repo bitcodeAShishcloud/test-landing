@@ -74,7 +74,6 @@ export function Institution() {
     <section
       className="relative overflow-hidden py-24 md:py-32"
       style={{
-        background: '#070B17',
         borderBottom: '1px solid rgba(94, 23, 235, 0.18)',
       }}
     >

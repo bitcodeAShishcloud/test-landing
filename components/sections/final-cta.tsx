@@ -9,7 +9,6 @@ export function FinalCta() {
     <section
       id="register"
       className="relative overflow-hidden py-28 md:py-36"
-      style={{ background: '#070B17' }}
     >
       <div
         aria-hidden="true"

@@ -3,8 +3,6 @@
 import Image from 'next/image'
 import { motion } from 'motion/react'
 import { Radio, ArrowRight, Users, UsersRound, Trophy } from 'lucide-react'
-import { MatrixRain } from '@/components/matrix-rain'
-import { HeroLogoSvg } from '@/components/hero-logo-svg'
 import { FlameEffect } from '@/components/flame-effect'
 import { GlitchText } from '@/components/glitch-text'
 
@@ -18,25 +16,8 @@ export function Hero() {
   return (
     <section
       id="top"
-      className="relative flex min-h-screen items-center overflow-hidden bg-mesh pt-24 sm:pt-28 md:pt-32 pb-12 sm:pb-16"
+      className="relative flex min-h-screen items-center overflow-hidden pt-24 sm:pt-28 md:pt-32 pb-12 sm:pb-16"
     >
-      {/* Slow-motion 0 & 1 Binary Matrix Rain Background */}
-      <MatrixRain className="pointer-events-none absolute inset-0 h-full w-full z-0 opacity-70" />
-      <div className="z-0 absolute inset-0 grid-lines opacity-40 pointer-events-none" aria-hidden="true" />
-
-      {/* SVG GHOST PROTOCOL CTF watermark — light vector, no image asset */}
-      <HeroLogoSvg
-        className="z-0 opacity-20 sm:opacity-25"
-        opacity={0.22}
-        blurPx={3}
-      />
-
-      {/* Bottom fade into next section */}
-      <div
-        className="pointer-events-none absolute inset-x-0 bottom-0 h-32 sm:h-40 bg-gradient-to-t from-[#050816] to-transparent z-0"
-        aria-hidden="true"
-      />
-
       <div className="relative z-10 mx-auto grid w-full max-w-6xl grid-cols-1 items-center gap-8 sm:gap-12 px-4 lg:grid-cols-[1.1fr_0.9fr]">
         <div className="text-center lg:text-left">
           <motion.span

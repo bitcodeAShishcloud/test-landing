@@ -20,7 +20,6 @@ export function Club() {
       id="club"
       className="relative overflow-hidden py-24 md:py-32"
       style={{
-        background: '#070B17',
         borderTop: '1px solid rgba(94, 23, 235, 0.18)',
         borderBottom: '1px solid rgba(94, 23, 235, 0.18)',
       }}
