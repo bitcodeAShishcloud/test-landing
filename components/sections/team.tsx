@@ -91,7 +91,7 @@ const coreLeads = [
     team: 'Cyber Invaders Club',
     tag: 'TECH HEAD',
     color: '#38bdf8',
-    image: '/ashish-gupta.jpeg',
+    image: '/ashish-gupta.webp',
   },
   {
     name: 'Ananya Paliwal',

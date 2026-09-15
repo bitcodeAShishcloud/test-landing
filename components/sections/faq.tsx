@@ -33,7 +33,7 @@ const faqs = [
   },
   {
     q: 'What is the prize pool?',
-    a: 'The total prize pool is ₹24,000 distributed across top-performing teams. Certificates, trophies, and goodies will also be awarded to winners and finalists.',
+    a: 'The total prize pool is ₹24,000+ distributed across top-performing teams. Certificates, trophies, and goodies will also be awarded to winners and finalists.',
   },
   {
     q: 'How do I stay updated about announcements?',

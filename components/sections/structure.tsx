@@ -32,7 +32,7 @@ const phase2Highlights = [
   'Hosted on-ground at NIET Greater Noida campus',
   'Dual-format: Jeopardy Round + Live Attack & Defense',
   '8-hour continuous war-room showdown',
-  '₹24,000 prize pool, trophies & national acclaim',
+  '₹24,000+ prize pool, trophies & national acclaim',
 ]
 
 const pipelineSteps = [
@@ -42,7 +42,7 @@ const pipelineSteps = [
     phaseTag: 'Phase 1 · Prep',
     icon: Compass,
     title: 'Discover Event',
-    desc: 'Explore the tournament format, 10 challenge categories, scoring dynamics and the ₹24,000 prize stakes.',
+    desc: 'Explore the tournament format, 10 challenge categories, scoring dynamics and the ₹24,000+ prize stakes.',
     accent: '#5e17eb',
     glow: 'rgba(94, 23, 235, 0.35)',
   },
@@ -102,7 +102,7 @@ const pipelineSteps = [
     phaseTag: 'Phase 2 · Podium',
     icon: Award,
     title: 'Championship Podium',
-    desc: 'Win recognition, claim your share of the ₹24,000 cash pool, prestige trophies, certificates and industry acclaim.',
+    desc: 'Win recognition, claim your share of the ₹24,000+ cash pool, prestige trophies, certificates and industry acclaim.',
     accent: '#e83e8c',
     glow: 'rgba(232, 62, 140, 0.4)',
   },
@@ -314,7 +314,7 @@ export function Structure() {
                     ⚔️ Attack & Defense
                   </span>
                   <span className="rounded-lg px-2.5 py-1 bg-[#111A2E] text-[#CBD5E1] border border-[rgba(232,62,140,0.2)]">
-                    🏆 ₹24,000 Rewards
+                    🏆 ₹24,000+ Rewards
                   </span>
                 </div>
 

@@ -30,11 +30,11 @@ const metrics = [
     icon: Trophy,
     count: 24000,
     prefix: '₹',
-    suffix: '',
+    suffix: '+',
     label: 'Prize Pool',
     sub: 'Guaranteed rewards & bounties',
     badge: 'REWARDS',
-    back: 'Guaranteed Pool: ₹24,000 cash prizes, prestigious champion trophies, certificates of merit & exclusive goodies for winners.',
+    back: 'Guaranteed Pool: ₹24,000+ cash prizes, prestigious champion trophies, certificates of merit & exclusive goodies for winners.',
   },
   {
     icon: Globe,

@@ -9,7 +9,7 @@ import { FlameEffect } from '@/components/flame-effect'
 const stats = [
   { icon: Users, value: '350+', label: 'Expected Teams' },
   { icon: UsersRound, value: '1,000+', label: 'Expected Participants' },
-  { icon: Trophy, value: '₹24,000', label: 'Prize Pool' },
+  { icon: Trophy, value: '₹24,000+', label: 'Prize Pool' },
 ]
 
 export function Hero() {
