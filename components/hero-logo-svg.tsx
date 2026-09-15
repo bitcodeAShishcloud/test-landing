@@ -86,29 +86,91 @@ export function HeroLogoSvg({
           H
         </text>
 
-        {/* Ghost medallion in place of the O */}
+        {/* Ghost medallion in place of the O — a hooded hacker silhouette
+            (faithful to the reference: tall pointed hood, white headband arc,
+            two bright glowing eyes, black face, binary data stream on chest) */}
         <g>
           <circle cx="408" cy="104" r="58" fill="#082012" stroke="url(#hp-green)" strokeWidth={4} />
           <g transform="translate(408 104)">
+            {/* ── Tall pointed hood (the "O" shape) ── */}
             <path
-              d="M -32 -40 C -32 -55 -17 -65 0 -65 C 17 -65 32 -55 32 -40 C 32 -26 22 -13 11 -5 L -11 -5 C -22 -13 -32 -26 -32 -40 Z"
+              d="M 0 -66
+                 C 22 -66 34 -52 34 -30
+                 C 34 -10 24 6 14 14
+                 L -14 14
+                 C -24 6 -34 -10 -34 -30
+                 C -34 -52 -22 -66 0 -66 Z"
               fill="#0b2417"
               stroke="url(#hp-green)"
               strokeWidth={2.5}
             />
+            {/* hood apex highlight */}
             <path
-              d="M -20 -44 C -20 -55 -8 -61 0 -61 C 8 -61 20 -55 20 -44 C 20 -33 11 -23 0 -23 C -11 -23 -20 -33 -20 -44 Z"
+              d="M 0 -66 C 12 -66 22 -58 28 -44 C 18 -54 8 -60 0 -60
+                 C -8 -60 -18 -54 -28 -44 C -22 -58 -12 -66 0 -66 Z"
+              fill="url(#hp-bright)"
+              opacity="0.25"
+            />
+
+            {/* ── White headband arc (bright band across the hood) ── */}
+            <path
+              d="M -30 -22
+                 C -18 -38 18 -38 30 -22
+                 C 22 -34 12 -42 0 -42
+                 C -12 -42 -22 -34 -30 -22 Z"
+              fill="url(#hp-bright)"
+            />
+            {/* headband inner seam */}
+            <path
+              d="M -26 -24 C -14 -36 14 -36 26 -24"
+              fill="none"
+              stroke="#052014"
+              strokeWidth={1.2}
+              opacity="0.6"
+            />
+
+            {/* ── Black face void (below the band) ── */}
+            <path
+              d="M -20 -18
+                 C -20 -4 -10 8 0 8
+                 C 10 8 20 -4 20 -18
+                 C 12 -10 -12 -10 -20 -18 Z"
               fill="#02070a"
             />
-            <circle cx="-9" cy="-42" r="3.2" fill="#86efac" />
-            <circle cx="9" cy="-42" r="3.2" fill="#86efac" />
+
+            {/* ── Two bright glowing eyes ── */}
+            <ellipse cx="-9" cy="-10" rx="6.5" ry="4.2" fill="url(#hp-bright)">
+              <animate attributeName="opacity" values="1;0.6;1" dur="3.2s" repeatCount="indefinite" />
+            </ellipse>
+            <ellipse cx="9" cy="-10" rx="6.5" ry="4.2" fill="url(#hp-bright)">
+              <animate attributeName="opacity" values="1;0.6;1" dur="3.2s" repeatCount="indefinite" />
+            </ellipse>
+            {/* eye glow halos */}
+            <circle cx="-9" cy="-10" r="10" fill="url(#hp-glow)" opacity="0.5" />
+            <circle cx="9" cy="-10" r="10" fill="url(#hp-glow)" opacity="0.5" />
+
+            {/* ── Shoulders / chest with binary data stream ── */}
             <path
-              d="M -11 -5 C -28 -1 -40 9 -44 21 L 44 21 C 40 9 28 -1 11 -5 Z"
+              d="M -14 14
+                 C -30 18 -42 26 -46 34
+                 L 46 34
+                 C 42 26 30 18 14 14 Z"
               fill="#0b2417"
               stroke="url(#hp-green)"
               strokeWidth={2}
             />
-            <path d="M 0 3 L 7 11 L 0 19 L -7 11 Z" fill="url(#hp-bright)" opacity="0.7" />
+            {/* binary digits dripping down the chest (the reference's data stream) */}
+            <g fontFamily="monospace" fontSize="7" fill="url(#hp-bright)" opacity="0.85" textAnchor="middle">
+              <text x="-30" y="30">0</text>
+              <text x="-18" y="33">1</text>
+              <text x="-6" y="30">1</text>
+              <text x="6" y="33">0</text>
+              <text x="18" y="30">1</text>
+              <text x="30" y="33">0</text>
+              <text x="-24" y="24" opacity="0.5">1</text>
+              <text x="0" y="24" opacity="0.5">0</text>
+              <text x="24" y="24" opacity="0.5">1</text>
+            </g>
           </g>
         </g>
 
