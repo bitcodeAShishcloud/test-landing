@@ -7,8 +7,6 @@ import {
   GraduationCap,
   Users,
   Shield,
-  Linkedin,
-  Github,
   Mail,
   ExternalLink,
   Sparkles,
@@ -37,6 +35,17 @@ const leadershipPatrons = [
     color: '#e83e8c',
   },
   {
+    name: 'Dr. Vinod M. Kapse',
+    designation: 'Director, NIET Greater Noida',
+    role: 'Patron-in-Chief & Institutional Director',
+    quote:
+      'At NIET, we champion practical, hands-on innovation over theoretical learning. Ghost Protocol CTF 2.0 embodies our mission to cultivate elite cyber talent, ethical hackers, and defensive strategists capable of securing our nation\'s critical digital frontiers.',
+    dept: 'Noida Institute of Engineering and Technology (NIET)',
+    tag: 'PATRON-IN-CHIEF',
+    image: '/director-niet.webp',
+    color: '#5e17eb',
+  },
+  {
     name: 'Dr. Neema Agarwal',
     designation: 'Additional Managing Director, NIET Greater Noida',
     role: 'Patron & Additional Managing Director',
@@ -46,17 +55,6 @@ const leadershipPatrons = [
     tag: 'ADDL. MANAGING DIRECTOR',
     image: '/dr-neema-agarwal.webp',
     color: '#38bdf8',
-  },
-  {
-    name: 'Dr. Vinod M. Kapse',
-    designation: 'Director, NIET Greater Noida',
-    role: 'Patron-in-Chief & Institutional Director',
-    quote:
-      'At NIET, we champion practical, hands-on innovation over theoretical learning. Ghost Protocol CTF 2.0 embodies our mission to cultivate elite cyber talent, ethical hackers, and defensive strategists capable of securing our nation’s critical digital frontiers.',
-    dept: 'Noida Institute of Engineering and Technology (NIET)',
-    tag: 'PATRON-IN-CHIEF',
-    image: '/director-niet.webp',
-    color: '#5e17eb',
   },
   {
     name: 'Dr. Naresh Kumar',
@@ -119,6 +117,14 @@ const coreLeads = [
     tag: 'FACULTY',
     color: '#7c3aed',
     image: '/deepika-singh.webp',
+  },
+  {
+    name: 'Sumit Sir',
+    role: 'Faculty Coordinator',
+    team: 'Faculty Council',
+    tag: 'FACULTY',
+    color: '#5e17eb',
+    image: '/sumit-sir.webp',
   },
   {
     name: 'Ashish Gupta',
@@ -429,70 +435,163 @@ export function Team() {
             </div>
           </Reveal>
 
-          <StaggerGroup className="grid gap-4 grid-cols-2 sm:grid-cols-3 lg:grid-cols-6">
-            {coreLeads.map((lead) => (
-              <motion.div
-                key={lead.name}
-                variants={staggerItem}
-                className="group relative flex flex-col justify-between overflow-hidden rounded-2xl p-4 text-center transition-all duration-300 hover:-translate-y-1.5 drop-shadow-[0_0_20px_rgba(94,23,235,0.25)]"
-                style={{
-                  background: '#0D1425',
-                }}
-              >
-                <div
-                  className="absolute inset-x-0 top-0 h-0.5"
-                  style={{ background: lead.color }}
-                />
+          {/* Faculty Coordinators sub-heading */}
+          <Reveal>
+            <div className="my-8 flex items-center gap-4">
+              <div className="h-px flex-1 bg-gradient-to-r from-transparent via-[rgba(94,23,235,0.4)] to-[rgba(94,23,235,0.4)]" />
+              <span className="font-mono text-xs font-semibold uppercase tracking-[0.24em] text-[#a78bfa]">
+                Faculty Coordinators
+              </span>
+              <div className="h-px flex-1 bg-gradient-to-l from-transparent via-[rgba(94,23,235,0.4)] to-[rgba(94,23,235,0.4)]" />
+            </div>
+          </Reveal>
 
-                <div>
-                  {/* Photo Slot (100% Borderless) */}
-                  <div className="mx-auto mb-3 flex justify-center">
-                    <div className="relative size-20 sm:size-24 overflow-hidden rounded-2xl drop-shadow-[0_0_16px_rgba(94,23,235,0.3)] transition-transform duration-300 group-hover:scale-105">
-                      <div className="relative h-full w-full overflow-hidden rounded-2xl bg-[#111A2E] flex items-center justify-center">
-                        {lead.image ? (
-                          <Image
-                            src={lead.image}
-                            alt={lead.name}
-                            fill
-                            className="object-cover object-top rounded-2xl"
-                          />
-                        ) : (
-                          <div className="flex flex-col items-center justify-center gap-1">
-                            <Shield className="size-6 text-[#a78bfa]" />
-                            <span className="font-mono text-[7px] uppercase tracking-wider text-[#68738D]">
-                              Faculty
-                            </span>
-                          </div>
-                        )}
+          <StaggerGroup className="grid gap-4 grid-cols-2 sm:grid-cols-3">
+            {coreLeads
+              .filter((l) => l.tag === 'FACULTY')
+              .map((lead) => (
+                <motion.div
+                  key={lead.name}
+                  variants={staggerItem}
+                  className="group relative flex flex-col justify-between overflow-hidden rounded-2xl p-4 text-center transition-all duration-300 hover:-translate-y-1.5 drop-shadow-[0_0_20px_rgba(94,23,235,0.25)]"
+                  style={{
+                    background: '#0D1425',
+                  }}
+                >
+                  <div
+                    className="absolute inset-x-0 top-0 h-0.5"
+                    style={{ background: lead.color }}
+                  />
+
+                  <div>
+                    {/* Photo Slot (100% Borderless) */}
+                    <div className="mx-auto mb-3 flex justify-center">
+                      <div className="relative size-20 sm:size-24 overflow-hidden rounded-2xl drop-shadow-[0_0_16px_rgba(94,23,235,0.3)] transition-transform duration-300 group-hover:scale-105">
+                        <div className="relative h-full w-full overflow-hidden rounded-2xl bg-[#111A2E] flex items-center justify-center">
+                          {lead.image ? (
+                            <Image
+                              src={lead.image}
+                              alt={lead.name}
+                              fill
+                              className="object-cover object-top rounded-2xl"
+                            />
+                          ) : (
+                            <div className="flex flex-col items-center justify-center gap-1">
+                              <Shield className="size-6 text-[#a78bfa]" />
+                              <span className="font-mono text-[7px] uppercase tracking-wider text-[#68738D]">
+                                Faculty
+                              </span>
+                            </div>
+                          )}
+                        </div>
                       </div>
                     </div>
+
+                    <span
+                      className="inline-block rounded px-2 py-0.5 font-mono text-[8px] sm:text-[9px] font-semibold uppercase tracking-wider mb-1"
+                      style={{
+                        background: `${lead.color}15`,
+                        color: lead.color === '#e83e8c' ? '#e83e8c' : '#a78bfa',
+                      }}
+                    >
+                      {lead.tag}
+                    </span>
+
+                    <h5 className="font-display text-xs sm:text-sm font-bold text-white leading-snug">
+                      {lead.name}
+                    </h5>
+                    <p className="mt-1 font-mono text-[10px] leading-tight text-[#a78bfa]">
+                      {lead.role}
+                    </p>
                   </div>
 
-                  <span
-                    className="inline-block rounded px-2 py-0.5 font-mono text-[8px] sm:text-[9px] font-semibold uppercase tracking-wider mb-1"
-                    style={{
-                      background: `${lead.color}15`,
-                      color: lead.color === '#e83e8c' ? '#e83e8c' : '#a78bfa',
-                    }}
-                  >
-                    {lead.tag}
-                  </span>
+                  <div className="mt-3 pt-2">
+                    <span className="font-mono text-[9px] text-[#68738D]">
+                      {lead.team}
+                    </span>
+                  </div>
+                </motion.div>
+              ))}
+          </StaggerGroup>
 
-                  <h5 className="font-display text-xs sm:text-sm font-bold text-white leading-snug">
-                    {lead.name}
-                  </h5>
-                  <p className="mt-1 font-mono text-[10px] leading-tight text-[#a78bfa]">
-                    {lead.role}
-                  </p>
-                </div>
+          {/* Executive Leadership sub-heading */}
+          <Reveal>
+            <div className="my-8 flex items-center gap-4">
+              <div className="h-px flex-1 bg-gradient-to-r from-transparent via-[rgba(232,62,140,0.35)] to-[rgba(232,62,140,0.35)]" />
+              <span className="font-mono text-xs font-semibold uppercase tracking-[0.24em] text-[#e83e8c]">
+                Executive Leadership of Cyber Invaders
+              </span>
+              <div className="h-px flex-1 bg-gradient-to-l from-transparent via-[rgba(232,62,140,0.35)] to-[rgba(232,62,140,0.35)]" />
+            </div>
+          </Reveal>
 
-                <div className="mt-3 pt-2">
-                  <span className="font-mono text-[9px] text-[#68738D]">
-                    {lead.team}
-                  </span>
-                </div>
-              </motion.div>
-            ))}
+          {/* Remaining council members (non-faculty) — 4 cards in a single row */}
+          <StaggerGroup className="grid gap-4 grid-cols-2 md:grid-cols-4">
+            {coreLeads
+              .filter((l) => l.tag !== 'FACULTY')
+              .map((lead) => (
+                <motion.div
+                  key={lead.name}
+                  variants={staggerItem}
+                  className="group relative flex flex-col justify-between overflow-hidden rounded-2xl p-4 text-center transition-all duration-300 hover:-translate-y-1.5 drop-shadow-[0_0_20px_rgba(94,23,235,0.25)]"
+                  style={{
+                    background: '#0D1425',
+                  }}
+                >
+                  <div
+                    className="absolute inset-x-0 top-0 h-0.5"
+                    style={{ background: lead.color }}
+                  />
+
+                  <div>
+                    {/* Photo Slot (100% Borderless) */}
+                    <div className="mx-auto mb-3 flex justify-center">
+                      <div className="relative size-20 sm:size-24 overflow-hidden rounded-2xl drop-shadow-[0_0_16px_rgba(94,23,235,0.3)] transition-transform duration-300 group-hover:scale-105">
+                        <div className="relative h-full w-full overflow-hidden rounded-2xl bg-[#111A2E] flex items-center justify-center">
+                          {lead.image ? (
+                            <Image
+                              src={lead.image}
+                              alt={lead.name}
+                              fill
+                              className="object-cover object-top rounded-2xl"
+                            />
+                          ) : (
+                            <div className="flex flex-col items-center justify-center gap-1">
+                              <Shield className="size-6 text-[#a78bfa]" />
+                              <span className="font-mono text-[7px] uppercase tracking-wider text-[#68738D]">
+                                Faculty
+                              </span>
+                            </div>
+                          )}
+                        </div>
+                      </div>
+                    </div>
+
+                    <span
+                      className="inline-block rounded px-2 py-0.5 font-mono text-[8px] sm:text-[9px] font-semibold uppercase tracking-wider mb-1"
+                      style={{
+                        background: `${lead.color}15`,
+                        color: lead.color === '#e83e8c' ? '#e83e8c' : '#a78bfa',
+                      }}
+                    >
+                      {lead.tag}
+                    </span>
+
+                    <h5 className="font-display text-xs sm:text-sm font-bold text-white leading-snug">
+                      {lead.name}
+                    </h5>
+                    <p className="mt-1 font-mono text-[10px] leading-tight text-[#a78bfa]">
+                      {lead.role}
+                    </p>
+                  </div>
+
+                  <div className="mt-3 pt-2">
+                    <span className="font-mono text-[9px] text-[#68738D]">
+                      {lead.team}
+                    </span>
+                  </div>
+                </motion.div>
+              ))}
           </StaggerGroup>
         </div>
 
