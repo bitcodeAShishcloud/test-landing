@@ -8,23 +8,23 @@ import { CountUp } from '@/components/count-up'
 const metrics = [
   {
     icon: Users,
-    count: 350,
+    count: 500,
     prefix: '',
     suffix: '+',
     label: 'Expected Teams',
     sub: 'Pan-India student registrations',
     badge: 'EXPECTED',
-    back: 'Projected Turnout: 350+ collegiate squads (up to 3 members per team) estimated to register from universities across India.',
+    back: 'Projected Turnout: 500+ collegiate squads (up to 3 members per team) estimated to register from universities across India.',
   },
   {
     icon: UsersRound,
-    count: 1000,
+    count: 1500,
     prefix: '',
     suffix: '+',
-    label: 'Expected Participants',
+    label: 'Expected Students',
     sub: 'Student cybersecurity hackers',
     badge: 'EXPECTED',
-    back: 'Projected Participation: 1,000+ passionate undergraduate & postgraduate ethical hackers competing in the qualification round.',
+    back: 'Projected Participation: 1,500+ passionate undergraduate & postgraduate ethical hackers competing in the qualification round.',
   },
   {
     icon: Trophy,

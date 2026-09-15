@@ -281,7 +281,7 @@ export function Contact() {
                       NIET Greater Noida
                     </h4>
                     <span className="mt-0.5 block text-[11px] font-mono text-[#a78bfa]">
-                      Grand Finale Arena · CSE Dept.
+                      Grand Finale Arena · Cyber Security Dept.
                     </span>
                   </div>
 

@@ -7,8 +7,8 @@ import { MatrixRain } from '@/components/matrix-rain'
 import { FlameEffect } from '@/components/flame-effect'
 
 const stats = [
-  { icon: Users, value: '350+', label: 'Expected Teams' },
-  { icon: UsersRound, value: '1,000+', label: 'Expected Participants' },
+  { icon: Users, value: '500+', label: 'Expected Teams' },
+  { icon: UsersRound, value: '1,500+', label: 'Expected Students' },
   { icon: Trophy, value: '₹24,000+', label: 'Prize Pool' },
 ]
 
