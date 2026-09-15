@@ -58,18 +58,29 @@ const leadershipPatrons = [
     image: '/director-niet.webp',
     color: '#5e17eb',
   },
+  {
+    name: 'Dr. Naresh Kumar',
+    designation: 'Associate Director, Academics, NIET Greater Noida',
+    role: 'Patron & Associate Director, Academics',
+    quote:
+      'I take immense pride in being part of an institution dedicated to academic excellence, holistic growth, and nation-building through quality education. NIET shapes learners into achievers — building future-ready professionals who are technically competent, ethically grounded, and carry the courage to innovate and the wisdom to lead.',
+    dept: 'Noida Institute of Engineering and Technology (NIET)',
+    tag: 'ASSOC. DIRECTOR · ACADEMICS',
+    image: '/dr-naresh-kumar.webp',
+    color: '#38bdf8',
+  },
 ]
 
 /* ─── Faculty Guides & Advisory Mentors Data ──────────────────────────────── */
 const mentors = [
   {
-    name: 'Prof. (Dr.) Chandra Shekhar Yadav',
-    role: 'Dean & Chief Faculty Advisor',
-    dept: 'School of Computer Applications, NIET',
+    name: 'Dr. Arun Kumar Tripathi',
+    role: 'Dean of Emerging Technology',
+    dept: 'School of Emerging Technology, NIET',
     institute: 'NIET Greater Noida',
-    tag: 'DEAN & ADVISOR',
+    tag: 'DEAN · EMERGING TECHNOLOGY',
     color: '#5e17eb',
-    image: '/dr-cs-yadav.webp',
+    image: '/dr-arun-kumar-tripathi.webp',
   },
   {
     name: 'Dr. Rashmi Sharma',
