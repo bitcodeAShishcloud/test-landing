@@ -35,17 +35,6 @@ const leadershipPatrons = [
     color: '#e83e8c',
   },
   {
-    name: 'Dr. Vinod M. Kapse',
-    designation: 'Director, NIET Greater Noida',
-    role: 'Patron-in-Chief & Institutional Director',
-    quote:
-      'At NIET, we champion practical, hands-on innovation over theoretical learning. Ghost Protocol CTF 2.0 embodies our mission to cultivate elite cyber talent, ethical hackers, and defensive strategists capable of securing our nation\'s critical digital frontiers.',
-    dept: 'Noida Institute of Engineering and Technology (NIET)',
-    tag: 'PATRON-IN-CHIEF',
-    image: '/director-niet.webp',
-    color: '#5e17eb',
-  },
-  {
     name: 'Dr. Neema Agarwal',
     designation: 'Additional Managing Director, NIET Greater Noida',
     role: 'Patron & Additional Managing Director',
@@ -55,6 +44,17 @@ const leadershipPatrons = [
     tag: 'ADDL. MANAGING DIRECTOR',
     image: '/dr-neema-agarwal.webp',
     color: '#38bdf8',
+  },
+  {
+    name: 'Dr. Vinod M. Kapse',
+    designation: 'Director, NIET Greater Noida',
+    role: 'Patron-in-Chief & Institutional Director',
+    quote:
+      'At NIET, we champion practical, hands-on innovation over theoretical learning. Ghost Protocol CTF 2.0 embodies our mission to cultivate elite cyber talent, ethical hackers, and defensive strategists capable of securing our nation\'s critical digital frontiers.',
+    dept: 'Noida Institute of Engineering and Technology (NIET)',
+    tag: 'PATRON-IN-CHIEF',
+    image: '/director-niet.webp',
+    color: '#5e17eb',
   },
   {
     name: 'Dr. Naresh Kumar',
