@@ -8,9 +8,9 @@ import { CountUp } from '@/components/count-up'
 import { siteLinks } from '@/lib/links'
 
 const stats = [
-  { value: 40, suffix: '+', label: 'Hands-on workshops' },
-  { value: 12, suffix: '', label: 'CTF events run' },
-  { value: 500, suffix: '+', label: 'Members trained' },
+  { value: 10, suffix: '+', label: 'Hands-on workshops' },
+  { value: 12, suffix: '', label: 'events run' },
+  { value: 300, suffix: '+', label: 'Members trained' },
   { value: 3, suffix: 'yrs', label: 'Building the community' },
 ]
 
