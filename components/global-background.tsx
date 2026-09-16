@@ -1,7 +1,6 @@
 'use client'
 
 import { MatrixRain } from '@/components/matrix-rain'
-import { HeroLogoSvg } from '@/components/hero-logo-svg'
 
 /**
  * Site-wide background layer, rendered once in the root layout so the
@@ -12,8 +11,7 @@ import { HeroLogoSvg } from '@/components/hero-logo-svg'
  *     same stable layer rather than a new background per section.
  *   - `z-0` keeps it behind all section content (sections use `relative`
  *     stacks / `z-10` for their content).
- *   - Matrix rain + grid lines + the GHOST PROTOCOL CTF vector emblem
- *     (as a faint, blurred watermark) sit on the dark base.
+ *   - Matrix rain + grid lines sit on the dark base.
  */
 export function GlobalBackground() {
   return (
@@ -35,13 +33,6 @@ export function GlobalBackground() {
 
       {/* Faint technical grid */}
       <div className="absolute inset-0 grid-lines opacity-40" />
-
-      {/* GHOST PROTOCOL CTF vector emblem as a faint watermark */}
-      <HeroLogoSvg
-        className="absolute inset-0 opacity-20 sm:opacity-25"
-        opacity={0.22}
-        blurPx={3}
-      />
 
       {/* Bottom fade so the tail of the rain melts into the page */}
       <div
