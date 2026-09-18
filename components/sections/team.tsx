@@ -103,7 +103,7 @@ const mentors = [
 /* ─── Core Organizing Council Data ─────────────────────────────────────────── */
 const coreLeads = [
   {
-    name: 'Harsh Chauhan',
+    name: 'Mr Harsh Chauhan',
     role: 'Faculty Coordinator',
     team: 'Faculty Council',
     tag: 'FACULTY',
@@ -111,7 +111,7 @@ const coreLeads = [
     image: null,
   },
   {
-    name: 'Deepika Singh',
+    name: 'Miss Deepika Singh',
     role: 'Faculty Coordinator',
     team: 'Faculty Council',
     tag: 'FACULTY',
@@ -119,7 +119,7 @@ const coreLeads = [
     image: '/deepika-singh.webp',
   },
   {
-    name: 'Sumit Sir',
+    name: 'Mr Sumit Kumar',
     role: 'Faculty Coordinator',
     team: 'Faculty Council',
     tag: 'FACULTY',
