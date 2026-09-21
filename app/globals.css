@@ -127,6 +127,176 @@
   50% { opacity: 1; }
 }
 
+/* ── HUD System Scan Line ── */
+.hud-scan {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  overflow: hidden;
+}
+.hud-scan::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(56, 189, 248, 0.45), transparent);
+  animation: hud-scan-sweep 3.5s ease-in-out infinite;
+}
+@keyframes hud-scan-sweep {
+  0% { top: -1%; opacity: 0; }
+  8% { opacity: 1; }
+  92% { opacity: 1; }
+  100% { top: 101%; opacity: 0; }
+}
+
+/* ── Radar Pulse (CSS only) ── */
+.radar-pulse {
+  position: absolute;
+  border-radius: 50%;
+  border: 1px solid rgba(56, 189, 248, 0.25);
+  animation: radar-expand 4s ease-out infinite;
+  pointer-events: none;
+}
+@keyframes radar-expand {
+  0% {
+    width: 0;
+    height: 0;
+    opacity: 0.55;
+  }
+  100% {
+    width: 180vmax;
+    height: 180vmax;
+    opacity: 0;
+  }
+}
+
+/* ── Digital Grid Animated ── */
+.cyber-grid {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background-image:
+    linear-gradient(rgba(56, 189, 248, 0.035) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(56, 189, 248, 0.035) 1px, transparent 1px);
+  background-size: 72px 72px;
+  mask-image: radial-gradient(65% 55% at 50% 50%, black 20%, transparent 100%);
+  -webkit-mask-image: radial-gradient(65% 55% at 50% 50%, black 20%, transparent 100%);
+  animation: grid-drift 25s linear infinite;
+}
+@keyframes grid-drift {
+  0% { background-position: 0 0; }
+  100% { background-position: 72px 72px; }
+}
+
+/* ── System Button ── */
+.sys-btn {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.875rem 2rem;
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #f8fafc;
+  border: 1px solid rgba(56, 189, 248, 0.3);
+  background: rgba(56, 189, 248, 0.06);
+  cursor: pointer;
+  overflow: hidden;
+  transition: all 0.25s ease;
+}
+.sys-btn::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 60%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(56, 189, 248, 0.18), transparent);
+  transition: left 0.5s ease;
+}
+.sys-btn:hover::before {
+  left: 120%;
+}
+.sys-btn:hover {
+  border-color: rgba(56, 189, 248, 0.7);
+  background: rgba(56, 189, 248, 0.12);
+  box-shadow: 0 0 28px -8px rgba(56, 189, 248, 0.4), inset 0 0 18px -8px rgba(56, 189, 248, 0.15);
+  color: #fff;
+}
+.sys-btn:active {
+  transform: scale(0.97);
+}
+
+/* ── System Button (Purple variant) ── */
+.sys-btn-purple {
+  border-color: rgba(94, 23, 235, 0.35);
+  background: rgba(94, 23, 235, 0.08);
+}
+.sys-btn-purple::before {
+  background: linear-gradient(90deg, transparent, rgba(167, 139, 250, 0.18), transparent);
+}
+.sys-btn-purple:hover {
+  border-color: rgba(94, 23, 235, 0.65);
+  background: rgba(94, 23, 235, 0.14);
+  box-shadow: 0 0 28px -8px rgba(94, 23, 235, 0.45), inset 0 0 18px -8px rgba(94, 23, 235, 0.15);
+}
+
+/* ── Status Indicator Dot ── */
+.status-dot {
+  display: inline-block;
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  animation: status-blink 2.2s ease-in-out infinite;
+}
+@keyframes status-blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.35; }
+}
+
+/* ── Corner Decorations ── */
+.corner-tl::before,
+.corner-tr::before,
+.corner-bl::before,
+.corner-br::before {
+  content: '';
+  position: absolute;
+  width: 18px;
+  height: 18px;
+  border-color: rgba(56, 189, 248, 0.3);
+  pointer-events: none;
+}
+.corner-tl::before {
+  top: 0; left: 0;
+  border-top: 1px solid; border-left: 1px solid;
+}
+.corner-tr::before {
+  top: 0; right: 0;
+  border-top: 1px solid; border-right: 1px solid;
+}
+.corner-bl::before {
+  bottom: 0; left: 0;
+  border-bottom: 1px solid; border-left: 1px solid;
+}
+.corner-br::before {
+  bottom: 0; right: 0;
+  border-bottom: 1px solid; border-right: 1px solid;
+}
+
+/* ── Stagger Reveal Animation ── */
+.reveal-up {
+  opacity: 0;
+  transform: translateY(22px);
+  animation: reveal-up 0.8s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+@keyframes reveal-up {
+  to { opacity: 1; transform: translateY(0); }
+}
+
 /* Continuous smooth card drift loop */
 .animate-card-drift {
   animation: card-drift 10s ease-in-out infinite;
