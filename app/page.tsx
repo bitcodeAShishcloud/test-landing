@@ -14,6 +14,7 @@ import { Contact } from '@/components/sections/contact'
 import { Announcement } from '@/components/sections/announcement'
 import { FinalCta } from '@/components/sections/final-cta'
 import { SiteFooter } from '@/components/sections/site-footer'
+import { CtfParticleOutro } from '@/components/sections/ctf-particle-outro'
 
 export default function Page() {
   return (
@@ -34,6 +35,7 @@ export default function Page() {
       <Announcement />
       <FinalCta />
       <SiteFooter />
+      <CtfParticleOutro />
     </main>
   )
 }
